@@ -1,16 +1,39 @@
-[gd_scene load_steps=4 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=10 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c36ticp3qxjfv" path="res://assets/tileset/tilesheet2.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://d1wsjjv1u2y0q" path="res://scripts/Navigation.gd" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://b1sbwmgxviw67" path="res://assets/img/icon.svg" id="2_yqjtg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lnu2h"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lbhrr"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/modulate = Color(0, 0, 1, 1)
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_yqjtg")
 1:0/0 = 0
 1:0/0/modulate = Color(0.9137255, 0, 1, 1)
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lnu2h")
 2:0/0 = 0
 2:0/0/modulate = Color(0.9137255, 0.7647059, 0, 1)
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lbhrr")
 3:0/0 = 0
 3:0/0/modulate = Color(0.9137255, 0, 0, 1)
 4:0/0 = 0
@@ -118,6 +141,9 @@ tile_size = Vector2i(32, 32)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_e2o6t")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
+radius = 20.0
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -130,3 +156,23 @@ tile_set = SubResource("TileSet_feb5d")
 
 [node name="Bar" type="Node2D" parent="."]
 position = Vector2(639, 334)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(436, 184)
+script = ExtResource("2_lnu2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0, -6)
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("2_yqjtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_yqjtg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Player"]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
