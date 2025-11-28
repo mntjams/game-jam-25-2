@@ -849,17 +849,17 @@ tile_set = SubResource("TileSet_feb5d")
 [node name="Bar" type="Node2D" parent="."]
 position = Vector2(639, 334)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Hero" type="CharacterBody2D" parent="."]
 position = Vector2(42.192993, 31.542717)
 script = ExtResource("2_lnu2h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
 shape = SubResource("CircleShape2D_lnu2h")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Hero"]
 zoom = Vector2(4, 4)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hero"]
 sprite_frames = SubResource("SpriteFrames_n8ral")
 animation = &"walk_down"
 frame_progress = 0.79529995
