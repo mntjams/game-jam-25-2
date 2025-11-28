@@ -14,6 +14,10 @@ config/name="game-jam-25-2"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GM="*res://scenes/game_manager.tscn"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
