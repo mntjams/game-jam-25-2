@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://chawp4exd5u4l"]
+
+[ext_resource type="Script" path="res://scripts/audio_settings.gd" id="1_7rsd2"]
+
+[node name="AudioSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7rsd2")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="SFX" type="Node2D" parent="HUD"]
+position = Vector2(92, 24)
+
+[node name="SFXLabel" type="Label" parent="HUD/SFX"]
+offset_right = 55.0
+offset_bottom = 23.0
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="HUD/SFX"]
+offset_left = 72.0
+offset_top = 4.0
+offset_right = 168.0
+offset_bottom = 20.0
+
+[node name="MUSIC" type="Node2D" parent="HUD"]
+position = Vector2(94, 56)
+
+[node name="MUSICLabel" type="Label" parent="HUD/MUSIC"]
+offset_right = 55.0
+offset_bottom = 23.0
+text = "MUSIC"
+horizontal_alignment = 1
+
+[node name="MUSICSlider" type="HSlider" parent="HUD/MUSIC"]
+offset_left = 72.0
+offset_top = 4.0
+offset_right = 168.0
+offset_bottom = 20.0
