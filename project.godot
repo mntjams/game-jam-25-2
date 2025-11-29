@@ -17,8 +17,8 @@ config/icon="uid://b1sbwmgxviw67"
 
 [autoload]
 
-GM="*res://scenes/game_manager.tscn"
 AS="*res://scenes/audio_settings.tscn"
+GM="*res://scripts/game_manager.gd"
 
 [display]
 
