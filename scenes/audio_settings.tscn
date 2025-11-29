@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6u1u1r3uiku5" path="res://scripts/audio_settings.gd" id="1_7rsd2"]
 
 [node name="AudioSettings" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,19 +15,18 @@ script = ExtResource("1_7rsd2")
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="SFX" type="Node2D" parent="HUD"]
-position = Vector2(92, 24)
+[node name="SFXSlider" type="HSlider" parent="HUD"]
+offset_left = 164.0
+offset_top = 28.0
+offset_right = 260.0
+offset_bottom = 44.0
 
-[node name="SFXLabel" type="Label" parent="HUD/SFX"]
-offset_right = 55.0
-offset_bottom = 23.0
+[node name="SFXLabel" type="Label" parent="HUD"]
+offset_left = 92.0
+offset_top = 24.0
+offset_right = 147.0
+offset_bottom = 47.0
 text = "SFX"
 horizontal_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="HUD/SFX"]
-offset_left = 72.0
-offset_top = 4.0
-offset_right = 168.0
-offset_bottom = 20.0
-
-[connection signal="value_changed" from="HUD/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="HUD/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
