@@ -10,13 +10,13 @@ var women_costume_textures: Array[Texture2D] = []
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-signal approached_by_player(woman : InteractableWoman)
+signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
 # --- Player tracking logic ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		emit_signal("approached_by_player",self)
+		emit_signal("approached_by_player",self, super.is_working())
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":

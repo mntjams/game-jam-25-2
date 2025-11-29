@@ -31,13 +31,16 @@ func _ready() -> void:
 		woman.connect("approached_by_player", _on_approach)
 		woman.connect("player_left", _on_leave)
 
-func _on_approach(woman : InteractableWoman):
-	women_in_sight.append(woman)
-	print(women_in_sight)
-	emit_signal("woman_entered_sight")
+func _on_approach(woman : InteractableWoman, is_working : bool):
+	if is_working:
+		women_in_sight.append(woman)
+		print(women_in_sight)
+		emit_signal("woman_entered_sight")
 	
 func _on_leave(woman : InteractableWoman):
 	var where = women_in_sight.find(woman)
+	if where == -1:
+		return
 	women_in_sight.remove_at(where)
 	print(women_in_sight)
 	if len(women_in_sight) == 0:

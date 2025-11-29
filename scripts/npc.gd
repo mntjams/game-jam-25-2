@@ -87,6 +87,8 @@ func on_done_in_room() -> void:
 	#print(self,"I am done in this room")
 	emit_signal("ready_for_room", self, old_room)
 	
+func is_working():
+	return working
 
 # --- STUCK HANDLING ---
 
