@@ -31,13 +31,20 @@ func _physics_process(delta: float) -> void:
 		print("Die")
 	elif right_part > good.position.x+good.size.x:
 		print("Not smoking")
-	var move_tween = get_tree().create_tween()
+		tween.pause()
+	elif not tween.is_running() and not finished:
+		tween.play()
+	
 	var vec = filter.position
 	if Input.is_action_pressed("slots"): vec.x-=vel
-	else: vec.x+=vel/2.0
+	else:
+		vec.x+=vel/2.0
+		if right_part >= full.size.x:
+				return
+	var move_tween = get_tree().create_tween()
 	move_tween.tween_property(filter,"position", vec,delta)
 	particles.position.x = not_filter.size.x
-	
 
 func _won():
+	finished = true
 	print("Won")
