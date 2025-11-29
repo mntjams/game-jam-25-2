@@ -13,7 +13,7 @@ var work_time_base : float = 5.0
 var working : bool = false
 
 @onready var stuck_timer: Timer = $StuckTimer
-@export var stuck_timeout: float = 7.5      # seconds before we assume stuck
+@export var stuck_timeout: float = 5      # seconds before we assume stuck
 
 # --- NPC Movement ---------------------------------------------------------
 
