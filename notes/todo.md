@@ -3,29 +3,32 @@
 ## Together
 
 IMPORTANT:
-- interakce se ženami
-  - žena má interest - pozvolna klesá
-  - pokud tě žena A vidí během toho, co hraješ hru s ženou B, tak ztratí interest
-  - se ženou jde interagovat jen když je v lokaci
-  - svůj timer, když workuje - timer se zastaví, když interaguje s hráčem
-  - jakmile interest reachne limit, tak jde k taxi
-    - tam čeká po dobu - taxi wait time
-    - po té době odjede a je konec hry
 
-- naimplementovat jednu hru
-  - hra jde spustit pouze když je tam žena
-  - zmáčknout space
-  - success - borka zvýší interest
-  - fail - borka ztratí interest
+- game finish
+  - když nějaké borce stoupne interest až na 100, tak půjde k finish pointu
+  - přidat lokaci finish point
+    - drží si sloty, borky tam chodí po řadě do fronty
+  - po vypršení timeoutu odjede taxi i s borkou a nastane konec hry
 
+- načapávání
+
+- balcony location
+  - tiles
+  - minigame logic
+
+- player controls
 
 ## Janek
 - bar for interest of women
 - hide press e to interact when starting interaction
 
 BONUS:
-- [ ] spatial audio (hráč slyší zvuky dle toho, jak je blízko lokaci)
+- rizz bar
+- particles when dancing
+- animated dj
+- světla
+- animovaná dance podlaha
+- nebalitelní kompars
 
 ## Draw
-- [ ] balcony
-- [ ] chodnik
+- zdi
