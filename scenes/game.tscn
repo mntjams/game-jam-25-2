@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=19 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c36ticp3qxjfv" path="res://assets/tileset/tilesheet2.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://mbypv7w6lcbn" path="res://scripts/game.gd" id="1_lbhrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://b7hqtl0b4q6uw" path="res://scenes/npc.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://bjsvq33d2u0id" path="res://scripts/label.gd" id="9_vtaks"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -259,15 +260,6 @@ position = Vector2(291.29083, 156.83296)
 [node name="Woman3" parent="NPCs" instance=ExtResource("9_0tnpc")]
 position = Vector2(291.29083, 156.83296)
 
-[node name="Woman4" parent="NPCs" instance=ExtResource("9_0tnpc")]
-position = Vector2(291.29083, 156.83296)
-
-[node name="Woman5" parent="NPCs" instance=ExtResource("9_0tnpc")]
-position = Vector2(291.29083, 156.83296)
-
-[node name="Woman6" parent="NPCs" instance=ExtResource("9_0tnpc")]
-position = Vector2(291.29083, 156.83296)
-
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 325.0
@@ -275,3 +267,7 @@ offset_top = 420.0
 offset_right = 385.0
 offset_bottom = 443.0
 text = "PRESS E"
+script = ExtResource("9_vtaks")
+
+[connection signal="no_woman_in_sight" from="Player" to="Label" method="_on_player_no_woman_in_sight"]
+[connection signal="woman_entered_sight" from="Player" to="Label" method="_on_player_woman_entered_sight"]
