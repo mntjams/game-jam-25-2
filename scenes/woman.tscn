@@ -26,6 +26,8 @@ path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 14.6
+debug_path_custom_line_width = 17.3
 
 [node name="StuckTimer" type="Timer" parent="."]
 

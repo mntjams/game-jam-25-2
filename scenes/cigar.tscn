@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj5xdhggwrgbl"]
+[gd_scene load_steps=3 format=3 uid="uid://ci2k0o8x3p4nq"]
 
 [ext_resource type="Script" uid="uid://otawrrblv1ll" path="res://scripts/cigar_minigame.gd" id="1_ktb7u"]
-[ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rext_small.png" id="1_tbj3s"]
+[ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="1_tbj3s"]
 
 [node name="Cigar" type="Node2D"]
 script = ExtResource("1_ktb7u")

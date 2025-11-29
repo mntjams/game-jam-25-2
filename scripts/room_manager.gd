@@ -2,6 +2,7 @@ extends Node
 class_name RoomManager
 
 var rooms: Array[Room] = []
+var final_room : Room = null
 
 func _ready() -> void:
 	randomize() # for rand num generator
@@ -16,7 +17,11 @@ func _collect_rooms() -> void:
 	rooms.clear()
 	for child in get_children():
 		if child is Room:
-			rooms.append(child)
+			if child.is_final_room:
+				final_room = child
+			else:
+				rooms.append(child)
+				
 
 
 # --- NPC connection ----------------------------------------------------------
@@ -26,6 +31,8 @@ func _connect_existing_npcs() -> void:
 	for npc in get_tree().get_nodes_in_group("NPCs"):
 		# print(npc, "should be connected")
 		_connect_npc(npc)
+		if npc is Npc:
+			npc.set_my_final_room(final_room)
 
 # connects single npc
 func _connect_npc(npc: Npc) -> void:
@@ -56,6 +63,10 @@ func get_random_room_with_vacancy_excluding(excluded : Room) -> Room:
 # --- Signal handler: NPC asks for a room ------------------------------------
 
 func _on_npc_ready_for_room(npc: Npc, exclude : Room) -> void:
+	
+	if npc.in_love: # don't reschedule guys which are in love
+		return
+	
 	#print("received signal from ", npc)
 	var room := get_random_room_with_vacancy_excluding(exclude)
 	if room == null:
@@ -66,4 +77,5 @@ func _on_npc_ready_for_room(npc: Npc, exclude : Room) -> void:
 		return  # safety check; should not happen if get_random_room_with_vacancy is correct
 
 	if room.occupy_slot(slot):
+		print("sending this fella there")
 		npc.go_to_slot(room, slot)

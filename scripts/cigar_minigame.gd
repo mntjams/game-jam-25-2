@@ -4,11 +4,19 @@ extends Node2D
 @onready var filter = $CanvasLayer/full/filter
 @onready var not_filter = $CanvasLayer/full/filter/not_filter
 @onready var particles = $CanvasLayer/full/filter/not_filter/CPUParticles2D
-var finished = false
+var finished_game = false
 var vel = 6
 var tween = null
 var origin_pos = 0
 # Called when the node enters the scene tree for the first time.
+
+signal finished(success: bool, interest_gained : float)
+
+var interest_gained : float = 10.0
+
+func start():
+	pass
+
 func _ready() -> void:
 	var sweet_spot = randf_range(0.3, 0.5)
 	var margin = (1-sweet_spot) * full.size.x
@@ -20,8 +28,6 @@ func _ready() -> void:
 	filter.position.x = good.position.x +1
 	origin_pos = not_filter.size.x
 	
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -46,5 +52,8 @@ func _physics_process(delta: float) -> void:
 	particles.position.x = not_filter.size.x
 
 func _won():
-	finished = true
+	finished_game = true
 	print("Won")
+	emit_signal("finished", true, interest_gained)
+	queue_free()
+	

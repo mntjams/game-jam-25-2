@@ -18,6 +18,9 @@ var interacting : bool = false
 
 signal started_working(woman : Npc)
 
+var final_room : Room = null
+var in_love : bool = false
+
 # setting the interacting flag
 func set_interacting(val : bool) -> void:
 	interacting = val
@@ -43,17 +46,17 @@ func go_to_slot(room: Room, slot: Slot) -> void:
 # set the destination of my navigation agent
 func _navigate_to(destination: Vector2) -> void:
 	navigation_agent_2d.target_position = destination
+	print("setting target position to ", destination)
 
 func _physics_process(_delta: float) -> void:
-	#print(self,"stuck timer",stuck_timer.time_left)
 	
-	# No target slot → do not move
-	if current_slot == null or working:
+	if working: # anti vibration
 		velocity = Vector2.ZERO
 		return
 
 	# If path is finished, we are at (or very near) the slot
 	if navigation_agent_2d.is_navigation_finished() and not working:
+		print("navigation finished")
 		_stop_stuck_timer()
 		_on_reached_slot()
 		return
@@ -74,6 +77,7 @@ func _ready() -> void:
 
 # what the npc should do when on the slot
 func _on_reached_slot() -> void:
+	print("I have reached a slot")
 	emit_signal("started_working",self)
 	velocity = Vector2.ZERO
 	working = true
@@ -101,7 +105,7 @@ func leave_current_slot() -> void:
 func on_done_in_room() -> void:
 	var old_room: Room = current_room
 	leave_current_slot()
-	#print(self,"I am done in this room")
+	#print("I am done in this room")
 	emit_signal("ready_for_room", self, old_room)
 	
 func is_working():
@@ -117,6 +121,9 @@ func _init_stuck_timer():
 	_restart_stuck_timer()
 
 func _on_stuck_timeout() -> void:
+	#print("stuck timeout muhahah")
+	if in_love:
+		return
 	# If we already reached the destination, ignore.
 	if navigation_agent_2d.is_navigation_finished():
 		return
@@ -134,7 +141,30 @@ func _on_stuck_timeout() -> void:
 
 func _restart_stuck_timer() -> void:
 	stuck_timer.stop()
+	if in_love:
+		return
 	stuck_timer.start()
 
 func _stop_stuck_timer() -> void:
 	stuck_timer.stop()
+	
+# --- Final room handling ---
+
+func _set_going_to_finish(val : bool):
+	in_love = val
+
+func set_my_final_room(room : Room) -> void:
+	final_room = room
+	print(self, "my final room is ", room)
+	
+func go_to_final_room():
+	_set_going_to_finish(true)
+	current_room = final_room
+	current_slot = final_room.get_first_free_slot()
+	#print("--- NPC:",self,"---")
+	#print("Going to room:",room)
+	#print("Going to slot:",slot)
+	_navigate_to(current_slot.global_position)
+	_stop_stuck_timer()
+	print(self,"I am going to final room")
+	#_restart_stuck_timer()

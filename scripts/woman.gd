@@ -42,25 +42,31 @@ func is_working() -> bool:
 
 # start interacting with the player
 func start_interaction(player : Player) -> void:
-	print(self, "hi boy. you are ",player)
+	#print(self, "hi boy. you are ",player)
 	super._stop_stuck_timer()
 	super.set_interacting(true)
 	current_room.start_minigame_for(self, player)
 
 
 # finish interacting with player and leave
-func finish_interaction(success : bool) -> void:
+func finish_interaction(success : bool, interest_gained : float) -> void:
 	if success:
-		gain_interest()
-	super._restart_stuck_timer()
-	super.set_interacting(false)
+		gain_interest(interest_gained)
 	super.set_working(false)
+	super.set_interacting(false)
+	if in_love:
+		return
+	super._restart_stuck_timer()
 	super.on_done_in_room()
 
-func gain_interest():
-	var gained := 10.0
-	print(self," You cool dude, I am really interested")
+func gain_interest(interest_gained : float):
+	var gained := interest_gained
+	#print(self," You cool dude, I am really interested")
 	interest = clamp(interest + gained, 0.0, 100.0)
+	if interest >= INTEREST_LIMIT:
+		print("I am going to final room now")
+		in_love = true
+		super.go_to_final_room()
 	_update_interest_bar_value()	
 
 # --- Player tracking logic ---
