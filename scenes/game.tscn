@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
 [ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://b7hqtl0b4q6uw" path="res://scenes/npc.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://rdrjhnbh11s1" path="res://man.tscn" id="9_vtaks"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -174,7 +174,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_feb5d"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_e2o6t")
 
@@ -190,6 +191,8 @@ tile_set = SubResource("TileSet_feb5d")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(436, 184)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("2_lnu2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -207,6 +210,9 @@ path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(5.74, 5.74)
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("5_0tnpc")
@@ -265,11 +271,11 @@ script = ExtResource("7_0tnpc")
 
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="Npc" parent="NPCs" instance=ExtResource("8_gee14")]
-position = Vector2(198.0246, 179.13342)
-
-[node name="Npc2" parent="NPCs" instance=ExtResource("8_gee14")]
-position = Vector2(209.02933, 66.53067)
-
 [node name="Woman" parent="NPCs" instance=ExtResource("9_0tnpc")]
 position = Vector2(291.29083, 156.83296)
+
+[node name="Man" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(204.45457, 119.63634)
+
+[node name="Man2" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(184.9091, 201.90906)
