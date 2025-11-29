@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=19 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c36ticp3qxjfv" path="res://assets/tileset/tilesheet2.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://mbypv7w6lcbn" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://d1wsjjv1u2y0q" path="res://scripts/Navigation.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://b1sbwmgxviw67" path="res://assets/img/icon.svg" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
+[ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
+[ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://b7hqtl0b4q6uw" path="res://scenes/npc.tscn" id="8_gee14"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -23,6 +27,30 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gee14"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0tnpc"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vtaks"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kvpfn"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
 texture_region_size = Vector2i(32, 32)
@@ -37,12 +65,16 @@ texture_region_size = Vector2i(32, 32)
 2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lbhrr")
 3:0/0 = 0
 3:0/0/modulate = Color(0.9137255, 0, 0, 1)
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gee14")
 4:0/0 = 0
 4:0/0/modulate = Color(0, 0.9647059, 0, 1)
+4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0tnpc")
 5:0/0 = 0
 5:0/0/modulate = Color(0, 0.9647059, 1, 1)
+5:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vtaks")
 6:0/0 = 0
 6:0/0/modulate = Color(0.8392157, 0.6, 0, 1)
+6:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kvpfn")
 7:0/0 = 0
 8:0/0 = 0
 9:0/0 = 0
@@ -149,9 +181,85 @@ script = ExtResource("1_lbhrr")
 tile_map_data = PackedByteArray("AAAaABYAAQACAAAAAAAbABYAAQACAAAAAAABAAMAAQADAAAAAAABAAQAAQADAAAAAAACAAMAAQADAAAAAAACAAQAAQADAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQABAAAAAAAEAAkAAQABAAAAAAAEAAoAAQABAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQABAAAAAAAFAAkAAQABAAAAAAAFAAoAAQABAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQABAAAAAAAGAAkAAQABAAAAAAAGAAoAAQABAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAgAAQABAAAAAAAHAAkAAQABAAAAAAAHAAoAAQABAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQABAAAAAAAIAAkAAQABAAAAAAAIAAoAAQABAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAMAAQAAAAAAAAALAAQAAQAAAAAAAAALAAUAAQAAAAAAAAALAAYAAQAAAAAAAAALAAcAAQAAAAAAAAALAAgAAQAFAAAAAAALAAkAAQAFAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAgAAQAFAAAAAAAMAAkAAQAFAAAAAAANAAMAAQAAAAAAAAANAAQAAQAAAAAAAAANAAUAAQAAAAAAAAANAAYAAQAAAAAAAAANAAcAAQAAAAAAAAANAAgAAQAFAAAAAAANAAkAAQAFAAAAAAAOAAMAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAFAAAAAAAOAAkAAQAFAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAgAAQAFAAAAAAAPAAkAAQAFAAAAAAAQAAYAAQAAAAAAAAAQAAcAAQAAAAAAAAATAAkAAQACAAAAAAATAAoAAQACAAAAAAAUAAMAAQACAAAAAAAUAAQAAQACAAAAAAAUAAUAAQACAAAAAAAUAAYAAQACAAAAAAAUAAcAAQACAAAAAAAUAAgAAQACAAAAAAAUAAkAAQACAAAAAAAUAAoAAQACAAAAAAAUAAsAAQACAAAAAAAUAAwAAQACAAAAAAAAAAAAAQADAAAAAAAAAAEAAQADAAAAAAAAAAIAAQADAAAAAAAAAAMAAQADAAAAAAAAAAQAAQADAAAAAAABAAAAAQADAAAAAAABAAEAAQADAAAAAAABAAIAAQADAAAAAAACAAAAAQADAAAAAAACAAEAAQADAAAAAAACAAIAAQADAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAgAAQABAAAAAAADAAkAAQABAAAAAAADAAoAAQABAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAKAAAAAQAGAAAAAAAKAAEAAQAGAAAAAAAKAAIAAQAGAAAAAAALAAAAAQAGAAAAAAALAAEAAQAGAAAAAAALAAIAAQAGAAAAAAAMAAAAAQAGAAAAAAAMAAEAAQAGAAAAAAAMAAIAAQAGAAAAAAANAAAAAQAGAAAAAAANAAEAAQAGAAAAAAANAAIAAQAGAAAAAAAOAAAAAQAGAAAAAAAOAAEAAQAGAAAAAAAOAAIAAQAGAAAAAAAPAAAAAQAGAAAAAAAPAAEAAQAGAAAAAAAPAAIAAQAGAAAAAAARAAYAAQAAAAAAAAARAAcAAQAAAAAAAAASAAYAAQAAAAAAAAASAAcAAQAAAAAAAAATAAAAAQACAAAAAAATAAEAAQACAAAAAAATAAIAAQACAAAAAAATAAMAAQACAAAAAAATAAQAAQACAAAAAAATAAUAAQACAAAAAAATAAYAAQACAAAAAAATAAcAAQACAAAAAAATAAgAAQACAAAAAAATAAsAAQACAAAAAAATAAwAAQACAAAAAAAUAAAAAQACAAAAAAAUAAEAAQACAAAAAAAUAAIAAQACAAAAAAA=")
 tile_set = SubResource("TileSet_feb5d")
 
-[node name="Automaty" type="Node2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(436, 184)
+script = ExtResource("2_lnu2h")
 
-[node name="Area2D" type="Area2D" parent="Automaty"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0, -6)
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("2_yqjtg")
 
-[node name="Bar" type="Node2D" parent="."]
-position = Vector2(639, 334)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_yqjtg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Player"]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="RoomManager" type="Node2D" parent="."]
+script = ExtResource("5_0tnpc")
+
+[node name="Room1" type="Node2D" parent="RoomManager" groups=["Rooms"]]
+position = Vector2(46, 79)
+script = ExtResource("6_gee14")
+
+[node name="Slot1" type="Node2D" parent="RoomManager/Room1"]
+position = Vector2(-28.554947, -56.886482)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot3" type="Node2D" parent="RoomManager/Room1"]
+position = Vector2(-26.714294, 47.662704)
+script = ExtResource("7_0tnpc")
+
+[node name="Room2" type="Node2D" parent="RoomManager" groups=["Rooms"]]
+position = Vector2(413.55396, 47.146423)
+script = ExtResource("6_gee14")
+
+[node name="Slot1" type="Node2D" parent="RoomManager/Room2"]
+position = Vector2(-75.098755, -29.082344)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot2" type="Node2D" parent="RoomManager/Room2"]
+position = Vector2(65.15918, -27.977951)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot3" type="Node2D" parent="RoomManager/Room2"]
+position = Vector2(-71.04932, 27.977951)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot4" type="Node2D" parent="RoomManager/Room2"]
+position = Vector2(60.00531, 34.60431)
+script = ExtResource("7_0tnpc")
+
+[node name="Room3" type="Node2D" parent="RoomManager" groups=["Rooms"]]
+position = Vector2(190.4666, 306.67877)
+script = ExtResource("6_gee14")
+
+[node name="Slot1" type="Node2D" parent="RoomManager/Room3"]
+position = Vector2(-75.09874, -27.609863)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot2" type="Node2D" parent="RoomManager/Room3"]
+position = Vector2(64.05476, -24.664795)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot3" type="Node2D" parent="RoomManager/Room3"]
+position = Vector2(-66.99986, 18.406494)
+script = ExtResource("7_0tnpc")
+
+[node name="Slot4" type="Node2D" parent="RoomManager/Room3"]
+position = Vector2(60.37346, 19.142761)
+script = ExtResource("7_0tnpc")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Npc" parent="NPCs" instance=ExtResource("8_gee14")]
+position = Vector2(198.0246, 179.13342)
+
+[node name="Npc2" parent="NPCs" instance=ExtResource("8_gee14")]
+position = Vector2(209.02933, 66.53067)
