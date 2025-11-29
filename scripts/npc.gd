@@ -9,8 +9,11 @@ var current_room: Room = null
 var current_slot: Slot = null
 @export var movement_speed: float = 500
 
-var work_time_base : float = 5
+var work_time_base : float = 5.0
 var working : bool = false
+
+@onready var stuck_timer: Timer = $StuckTimer
+@export var stuck_timeout: float = 7.5      # seconds before we assume stuck
 
 # --- NPC Movement ---------------------------------------------------------
 
@@ -22,12 +25,15 @@ func go_to_slot(room: Room, slot: Slot) -> void:
 	#print("Going to room:",room)
 	#print("Going to slot:",slot)
 	_navigate_to(slot.global_position)
+	_restart_stuck_timer()
 
 # set the destination of my navigation agent
 func _navigate_to(destination: Vector2) -> void:
 	navigation_agent_2d.target_position = destination
 
 func _physics_process(_delta: float) -> void:
+	#print(self,"stuck timer",stuck_timer.time_left)
+	
 	# No target slot → do not move
 	if current_slot == null or working:
 		velocity = Vector2.ZERO
@@ -35,6 +41,7 @@ func _physics_process(_delta: float) -> void:
 
 	# If path is finished, we are at (or very near) the slot
 	if navigation_agent_2d.is_navigation_finished() and not working:
+		_stop_stuck_timer()
 		_on_reached_slot()
 		return
 
@@ -50,6 +57,7 @@ func _physics_process(_delta: float) -> void:
 func _ready() -> void:
 	#print(self,": I am ready")
 	emit_signal("ready_for_room", self, null)
+	_init_stuck_timer()
 
 # what the npc should do when on the slot
 func _on_reached_slot() -> void:
@@ -78,3 +86,36 @@ func on_done_in_room() -> void:
 	leave_current_slot()
 	#print(self,"I am done in this room")
 	emit_signal("ready_for_room", self, old_room)
+	
+
+# --- STUCK HANDLING ---
+
+# initialize the stuck timer
+func _init_stuck_timer():
+	stuck_timer.wait_time = stuck_timeout
+	stuck_timer.one_shot = true
+	stuck_timer.timeout.connect(_on_stuck_timeout)
+	_restart_stuck_timer()
+
+func _on_stuck_timeout() -> void:
+	# If we already reached the destination, ignore.
+	if navigation_agent_2d.is_navigation_finished():
+		return
+
+	#print(self," Oh deer, I am stuck. Let's go some other way.")
+
+	# Remember which room we were in.
+	var old_room: Room = current_room
+
+	# Free current slot and clear current_room/current_slot
+	leave_current_slot()
+
+	# Ask RoomManager for a new room/slot, excluding the previous one.
+	emit_signal("ready_for_room", self, old_room)
+
+func _restart_stuck_timer() -> void:
+	stuck_timer.stop()
+	stuck_timer.start()
+
+func _stop_stuck_timer() -> void:
+	stuck_timer.stop()

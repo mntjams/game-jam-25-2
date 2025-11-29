@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func on_done_in_room() -> void:
 	super.on_done_in_room()
-	print("I am a woman woohooo")
+	#print("I am a woman woohooo")
 
 
 # --- COSTUMES HANDLING ---
