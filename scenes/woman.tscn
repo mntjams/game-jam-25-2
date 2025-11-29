@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://qoe1t1c24c7u"]
+[gd_scene load_steps=5 format=3 uid="uid://qoe1t1c24c7u"]
 
 [ext_resource type="Script" uid="uid://caxcmxtqm03ho" path="res://scripts/woman.gd" id="1_lbwyf"]
 [ext_resource type="Texture2D" uid="uid://b1sbwmgxviw67" path="res://assets/img/icon.svg" id="2_kset0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbwyf"]
 radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kset0"]
+radius = 131.9
 
 [node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
 scale = Vector2(0.5, 0.5)
@@ -25,3 +28,12 @@ path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kset0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
