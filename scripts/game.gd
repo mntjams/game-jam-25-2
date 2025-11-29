@@ -2,9 +2,13 @@ extends Node2D
 
 var woman_scene = preload("res://scenes/woman.tscn")
 var kompars_scene = preload("res://scenes/kompars.tscn")
+var player_scene = preload("res://scenes/player.tscn")
+var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = player_scene.instantiate()
+	add_child(player)
 	for i in range(12):
 		for j in range(12):
 			if ((i+j)%5 == 0):
