@@ -21,6 +21,8 @@ var key_map: Array = [
 
 ]
 
+var interest_gained : float = 10
+
 signal finished(success: bool)
 
 func start() -> void:
@@ -36,7 +38,7 @@ func _process(_delta: float) -> void:
 		#print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
 		if successes_needed == 0:
-			emit_signal("finished", true, 50.0)
+			emit_signal("finished", true, interest_gained)
 			#print("quicktime event finished")
 			queue_free()
 			return

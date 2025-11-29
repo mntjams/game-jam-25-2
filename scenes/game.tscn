@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=41 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://ci80yuy4650eo" path="res://assets/img/tiles/tileset4.png" id="1_ca42v"]
 [ext_resource type="Texture2D" uid="uid://h4evjbxm6uvl" path="res://assets/img/tiles/tileset2.png" id="1_kvpfn"]
@@ -8,13 +8,17 @@
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
 [ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
-[ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/crowd-chatter.mp3" id="8_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/ambiences/crowd-chatter.mp3" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
-[ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/city-ambience.mp3" id="8_vtaks"]
+[ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/ambiences/city-ambience.mp3" id="8_vtaks"]
 [ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://evbakb8g615y" path="res://scenes/quicktime_event_minigame.tscn" id="9_ir15t"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
-[ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/slots.mp3" id="11_trtic"]
+[ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/ambiences/slots.mp3" id="11_trtic"]
 [ext_resource type="PackedScene" uid="uid://cieuiwomnb3x8" path="res://scenes/test_minigame.tscn" id="12_trtic"]
+[ext_resource type="PackedScene" uid="uid://ci2k0o8x3p4nq" path="res://scenes/cigar.tscn" id="13_ca42v"]
+[ext_resource type="PackedScene" uid="uid://mh6y622rj5a2" path="res://scenes/slotting.tscn" id="15_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://byvhqna41uhww" path="res://scenes/piss.tscn" id="17_264po"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bt5mj"]
 vertices = PackedVector2Array(75, 75, -75, 75, -75, -75, 75, -75)
@@ -240,7 +244,7 @@ attenuation = 3.732131
 [node name="Dancefloor" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(1424.6531, 1069.7627)
 script = ExtResource("6_gee14")
-minigame_scene = ExtResource("12_trtic")
+minigame_scene = ExtResource("9_ir15t")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Dancefloor"]
 position = Vector2(-150.35315, -239.3628)
@@ -298,7 +302,7 @@ attenuation = 19.027283
 [node name="Balcony" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(2045.298, 2318.099)
 script = ExtResource("6_gee14")
-minigame_scene = ExtResource("12_trtic")
+minigame_scene = ExtResource("13_ca42v")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Balcony"]
 position = Vector2(-317.06934, 17.203125)
@@ -321,7 +325,7 @@ attenuation = 19.027283
 [node name="Machines" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(532.58203, 2037.4222)
 script = ExtResource("6_gee14")
-minigame_scene = ExtResource("12_trtic")
+minigame_scene = ExtResource("15_ssvqc")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Machines"]
 position = Vector2(-464.80933, -140.66577)
@@ -353,7 +357,7 @@ attenuation = 0.45062456
 [node name="Toilet" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(-189.32977, 225.87762)
 script = ExtResource("6_gee14")
-minigame_scene = ExtResource("12_trtic")
+minigame_scene = ExtResource("17_264po")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Toilet"]
 position = Vector2(568.50653, -142.12665)
@@ -383,7 +387,25 @@ attenuation = 19.027283
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Woman" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(471, 1378)
+position = Vector2(457, 1394)
+
+[node name="Woman2" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(939, 1064)
+
+[node name="Woman3" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(927, 1354)
+
+[node name="Woman4" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(483, 1078)
+
+[node name="Woman5" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(483, 1078)
+
+[node name="Woman6" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(413, 688)
+
+[node name="Woman7" parent="NPCs" instance=ExtResource("9_vtaks")]
+position = Vector2(745, 794)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
