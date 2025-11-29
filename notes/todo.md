@@ -23,4 +23,5 @@ BONUS:
 - [ ] spatial audio (hráč slyší zvuky dle toho, jak je blízko lokaci)
 
 ## Draw
-- [ ] bla bla
+- [ ] balcony
+- [ ] chodnik

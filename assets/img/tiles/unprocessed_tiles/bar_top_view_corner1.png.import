@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ysn24rv8c8jc"
-path="res://.godot/imported/floor_condom.png-7decc088f99bcca7acbba76d45d55519.ctex"
+uid="uid://h8ohja1df1jb"
+path="res://.godot/imported/bar_top_view_corner1.png-468a8ae6dbce59d24fed978f2efb69da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tiles/floor_condom.png"
-dest_files=["res://.godot/imported/floor_condom.png-7decc088f99bcca7acbba76d45d55519.ctex"]
+source_file="res://assets/img/tiles/unprocessed_tiles/bar_top_view_corner1.png"
+dest_files=["res://.godot/imported/bar_top_view_corner1.png-468a8ae6dbce59d24fed978f2efb69da.ctex"]
 
 [params]
 

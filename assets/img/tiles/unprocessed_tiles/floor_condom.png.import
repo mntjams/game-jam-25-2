@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrdcdh15ken4"
-path="res://.godot/imported/dancefloor_blue.png-67b08046c10ca70aa0d425c7af90a0f0.ctex"
+uid="uid://5ul7jeeyswvn"
+path="res://.godot/imported/floor_condom.png-897661b5987c1353cbb2b19ad27fb67e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tiles/dancefloor_blue.png"
-dest_files=["res://.godot/imported/dancefloor_blue.png-67b08046c10ca70aa0d425c7af90a0f0.ctex"]
+source_file="res://assets/img/tiles/unprocessed_tiles/floor_condom.png"
+dest_files=["res://.godot/imported/floor_condom.png-897661b5987c1353cbb2b19ad27fb67e.ctex"]
 
 [params]
 
