@@ -13,14 +13,62 @@ var women_costume_textures: Array[Texture2D] = []
 signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
+@onready var interest_bar: Label = $InterestBar
+
+const INTEREST_LIMIT : float = 100.0
+var player_in_range: bool = false
+var interest : float = 0.0
+
+# --- Interest bar logic
+
+func _init_interest_bar() -> void:
+	interest_bar.text = "0"
+	interest_bar.visible = false
+
+func _update_interest_bar_visibility() -> void:
+	# Show only while player is inside Area2D
+	interest_bar.visible = player_in_range
+
+func _update_interest_bar_value() -> void:
+	interest_bar.text = str(interest)
+#
+#func _update_interest_bar_value() -> void:
+	#interest_bar.value = interest
+
+# --- Interest and interaction logic---
+
+# start interacting with the player
+func start_interaction() -> void:
+	print(self, "hi boy")
+	super._stop_stuck_timer()
+	super.set_interacting(true)
+	# TODO: add some minigame logic here
+	# For now, simple placeholder: immediate interest gain:
+	var gained := 10.0
+	print(self," You cool dude, I am really interested")
+	interest = clamp(interest + gained, 0.0, 100.0)
+	_update_interest_bar_value()
+	_finish_interaction()
+
+# finish interacting with player and leave
+func _finish_interaction() -> void:
+	super._restart_stuck_timer()
+	super.set_interacting(false)
+	super.on_done_in_room()
+
 # --- Player tracking logic ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player_in_range = true
 		emit_signal("approached_by_player",self, super.is_working())
+		_update_interest_bar_visibility()
+
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	player_in_range = false
 	if body.name == "Player":
 		emit_signal("player_left",self)
+		_update_interest_bar_visibility()
 
 # --- BEHAVIOR LOGIC ---
 func _ready() -> void:
@@ -28,6 +76,7 @@ func _ready() -> void:
 	men_costume_textures = _load_costumes(MEN_COSTUMES_DIR)
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
 	_apply_random_costume()
+	_init_interest_bar()
 
 func on_done_in_room() -> void:
 	super.on_done_in_room()
