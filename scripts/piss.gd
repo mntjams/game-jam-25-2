@@ -10,9 +10,6 @@ func _ready() -> void:
 	var margin = (1-sweet_spot) * slider.size.x
 	text_rect.size.x -= margin
 	text_rect.position.x += margin/2
-	
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
