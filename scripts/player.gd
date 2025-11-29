@@ -2,29 +2,17 @@ extends CharacterBody2D
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var women_in_sight : Array[InteractableWoman] = []
-var movement_speed: float = 800
+var movement_speed: float = 1000
 
 signal woman_entered_sight
 signal no_woman_in_sight
 
 # --- Navigation ---
-func _physics_process(_delta: float) -> void:
-	var mouse_position: Vector2 = get_global_mouse_position()
-	navigate_to(mouse_position)
-	
-func navigate_to(destination: Vector2):
-	navigation_agent_2d.target_position = destination
-	
-	var current_agent_position: Vector2 = global_position
-	var next_path_position: Vector2 = navigation_agent_2d.get_next_path_position()
-	var new_velocity: Vector2 = current_agent_position.direction_to(next_path_position) * movement_speed
-	
-	if navigation_agent_2d.is_navigation_finished():
-		return
-	
-	velocity = new_velocity
+func _physics_process(delta: float) -> void:
+	velocity = 60*delta*movement_speed*Vector2(Input.get_action_strength("right")-Input.get_action_strength("left"), Input.get_action_strength("down")-Input.get_action_strength("up")).normalized()
+	print(velocity)
 	move_and_slide()
-
+	
 # --- Woman in sight tracking ---
 func _ready() -> void:
 	for woman in get_tree().get_nodes_in_group("NPCs"):
