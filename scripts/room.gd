@@ -4,6 +4,8 @@ class_name Room
 
 @export var minigame_scene : PackedScene
 
+@export var is_final_room : bool = false
+
 # --- minigame handling ---
 
 func start_minigame_for(woman: InteractableWoman, player: Player) -> void:
@@ -12,9 +14,9 @@ func start_minigame_for(woman: InteractableWoman, player: Player) -> void:
 	get_tree().current_scene.add_child(mg)
 	mg.start()
 
-func _on_minigame_finished(success: bool, woman: InteractableWoman, player: Player) -> void:
+func _on_minigame_finished(success: bool, interest_gained: float, woman: InteractableWoman, player: Player) -> void:
 	player.finish_interaction()
-	woman.finish_interaction(success)
+	woman.finish_interaction(success, interest_gained)
 
 # --- free slots handling ---
 
@@ -27,6 +29,15 @@ func get_free_slots() -> Array[Slot]:
 			free.append(child as Slot)
 
 	return free
+
+# return first free slot and set it occupied right away
+func get_first_free_slot() -> Slot:
+	var free = get_free_slots()
+	if free.is_empty():
+		return null
+	var slot = free.front();
+	slot.occupied = true
+	return slot
 
 # return a random free slot of this room to the RoomManager
 func get_random_free_slot() -> Slot:

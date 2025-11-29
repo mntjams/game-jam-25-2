@@ -2,15 +2,10 @@ extends CanvasLayer
 
 class_name MiniGame
 
-signal finished(success: bool)
-
-@onready var timer : Timer = $Timer
+signal finished(success: bool, interest_gained : float)
 
 func start() -> void:
-	timer.start()
-	print("minigame alive")
-
-func _on_timer_timeout() -> void:
-	print("minigame finished")
-	emit_signal("finished", true)
+	await get_tree().create_timer(0.01).timeout
+	print("test game finished")
+	emit_signal("finished", true, 100.0)
 	queue_free()

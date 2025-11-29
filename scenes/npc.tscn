@@ -12,10 +12,13 @@ script = ExtResource("1_abqhh")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
 target_desired_distance = 1.0
+path_postprocessing = 1
 avoidance_enabled = true
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.40815094, 0.719206, 0, 1)
+debug_path_custom_point_size = 11.78
+debug_path_custom_line_width = 12.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.65, 1.65)
