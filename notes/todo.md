@@ -19,6 +19,9 @@ IMPORTANT:
   - fail - borka ztratí interest
 
 
+## Janek
+- bar for interest of women
+
 BONUS:
 - [ ] spatial audio (hráč slyší zvuky dle toho, jak je blízko lokaci)
 
