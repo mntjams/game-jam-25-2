@@ -38,23 +38,27 @@ func _update_interest_bar_value() -> void:
 # --- Interest and interaction logic---
 
 # start interacting with the player
-func start_interaction() -> void:
-	print(self, "hi boy")
+func start_interaction(player : Player) -> void:
+	print(self, "hi boy. you are ",player)
 	super._stop_stuck_timer()
 	super.set_interacting(true)
-	# TODO: add some minigame logic here
-	# For now, simple placeholder: immediate interest gain:
+	current_room.start_minigame_for(self, player)
+
+
+# finish interacting with player and leave
+func finish_interaction(success : bool) -> void:
+	if success:
+		gain_interest()
+	super._restart_stuck_timer()
+	super.set_interacting(false)
+	super.set_working(false)
+	super.on_done_in_room()
+
+func gain_interest():
 	var gained := 10.0
 	print(self," You cool dude, I am really interested")
 	interest = clamp(interest + gained, 0.0, 100.0)
-	_update_interest_bar_value()
-	_finish_interaction()
-
-# finish interacting with player and leave
-func _finish_interaction() -> void:
-	super._restart_stuck_timer()
-	super.set_interacting(false)
-	super.on_done_in_room()
+	_update_interest_bar_value()	
 
 # --- Player tracking logic ---
 func _on_area_2d_body_entered(body: Node2D) -> void:

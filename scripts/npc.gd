@@ -25,6 +25,9 @@ func set_interacting(val : bool) -> void:
 func is_interacting() -> bool:
 	return interacting
 
+func set_working(val : bool) -> void:
+	working = val
+
 # --- NPC Movement ---------------------------------------------------------
 
 # set npc to go to the given Room and Slot

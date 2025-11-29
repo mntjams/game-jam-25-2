@@ -2,6 +2,22 @@ extends Node2D
 
 class_name Room
 
+@export var minigame_scene : PackedScene
+
+# --- minigame handling ---
+
+func start_minigame_for(woman: InteractableWoman, player: Player) -> void:
+	var mg := minigame_scene.instantiate()
+	mg.finished.connect(_on_minigame_finished.bind(woman, player))
+	get_tree().current_scene.add_child(mg)
+	mg.start()
+
+func _on_minigame_finished(success: bool, woman: InteractableWoman, player: Player) -> void:
+	player.finish_interaction()
+	woman.finish_interaction(success)
+
+# --- free slots handling ---
+
 # get array of free slots
 func get_free_slots() -> Array[Slot]:
 	var free: Array[Slot] = []

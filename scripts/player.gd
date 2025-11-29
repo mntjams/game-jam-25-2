@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var women_in_sight : Array[InteractableWoman] = []
 var movement_speed: float = 800
@@ -7,22 +9,33 @@ var movement_speed: float = 800
 signal woman_entered_sight
 signal no_woman_in_sight
 
+var is_interacting = false
+
 # --- Woman interaction ---
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # "interact" bound to E
 		if women_in_sight.size() == 0:
 			print(self,"no women here")
 		elif women_in_sight.size() == 1:	
-			var woman : InteractableWoman = women_in_sight[0]
-			woman.start_interaction()
-			print(self,"hey girl whatsup")
+			start_interaction()
 		elif women_in_sight.size() > 1:
 			print(self,"whooops")
 
+func finish_interaction():
+	is_interacting = false
+
+func start_interaction():
+		var woman : InteractableWoman = women_in_sight[0]
+		woman.start_interaction(self)
+		is_interacting = true
+		print(self,"hey girl whatsup")
+
+
 # --- Navigation ---
 func _physics_process(_delta: float) -> void:
-	var mouse_position: Vector2 = get_global_mouse_position()
-	navigate_to(mouse_position)
+	if not is_interacting:
+		var mouse_position: Vector2 = get_global_mouse_position()
+		navigate_to(mouse_position)
 	
 func navigate_to(destination: Vector2):
 	navigation_agent_2d.target_position = destination
