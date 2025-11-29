@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://baxxsaqaguw53"]
+
+[ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="1_liqgt"]
+[ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="1_llheb"]
+
+[node name="Room" type="Node2D" groups=["Rooms"]]
+script = ExtResource("1_liqgt")
+
+[node name="Slot1" type="Node2D" parent="."]
+position = Vector2(128, 128)
+script = ExtResource("1_llheb")
+
+[node name="Slot2" type="Node2D" parent="."]
+position = Vector2(256, 128)
+script = ExtResource("1_llheb")
+
+[node name="Slot3" type="Node2D" parent="."]
+position = Vector2(384, 128)
+script = ExtResource("1_llheb")
+
+[node name="Slot4" type="Node2D" parent="."]
+position = Vector2(512, 128)
+script = ExtResource("1_llheb")
+
+[node name="Slot5" type="Node2D" parent="."]
+position = Vector2(640, 128)
+script = ExtResource("1_llheb")
