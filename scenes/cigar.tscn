@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj5xdhggwrgbl"]
+
+[ext_resource type="Script" uid="uid://otawrrblv1ll" path="res://scripts/cigar_minigame.gd" id="1_ktb7u"]
+[ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rext_small.png" id="1_tbj3s"]
+
+[node name="Cigar" type="Node2D"]
+script = ExtResource("1_ktb7u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="full" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.13725491, 1, 1, 0.59607846)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 580.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tbj3s")
+
+[node name="good" type="TextureRect" parent="CanvasLayer/full"]
+self_modulate = Color(1, 0.15294118, 1, 0.6)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tbj3s")
+
+[node name="filter" type="TextureRect" parent="CanvasLayer/full"]
+self_modulate = Color(0.98039216, 0.45882353, 0.19215687, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -15.0
+offset_right = -200.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tbj3s")
+
+[node name="not_filter" type="TextureRect" parent="CanvasLayer/full/filter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -15.0
+offset_right = 350.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tbj3s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/full/filter/not_filter"]
+position = Vector2(300, 5)
+texture = ExtResource("1_tbj3s")
+gravity = Vector2(0, -400)
+color = Color(0.33660764, 0.3366076, 0.3366076, 1)

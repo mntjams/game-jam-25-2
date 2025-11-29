@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://byvhqna41uhww"]
+
+[ext_resource type="Script" uid="uid://c1d0gmpbb78he" path="res://scripts/piss.gd" id="1_u8csm"]
+[ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rext_small.png" id="2_3jfbr"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3jfbr"]
+color = Color(0.99881023, 0.7202589, 0.61991256, 1)
+thickness = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8csm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_u8csm"]
+color = Color(0, 0, 0, 0)
+
+[node name="Piss" type="Node2D"]
+script = ExtResource("1_u8csm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="slider" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -110.0
+offset_right = 195.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_3jfbr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u8csm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
+
+[node name="swee_spot" type="TextureRect" parent="CanvasLayer/slider"]
+self_modulate = Color(1, 1, 0.27058825, 0.4862745)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 35.0
+texture = ExtResource("2_3jfbr")
