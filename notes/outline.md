@@ -8,3 +8,10 @@
 - slot machines
 - toilets
 - taxi leave spot
+
+## Stavy žen
+
+- working
+- walking towards_goal
+- interacting with player
+- waiting for taxi
