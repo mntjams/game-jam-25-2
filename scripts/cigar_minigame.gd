@@ -31,6 +31,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	print(not_filter.size.x)
 	var left_part = filter.position.x
 	var right_part = left_part+filter.size.x
 	if left_part < good.position.x:
@@ -38,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	elif right_part > good.position.x+good.size.x:
 		print("Not smoking")
 		tween.pause()
-	elif not tween.is_running() and not finished:
+	elif not tween.is_running() and not finished_game:
 		tween.play()
 	
 	var vec = filter.position
