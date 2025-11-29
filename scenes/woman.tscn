@@ -6,12 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbwyf"]
 radius = 20.0
 
-[node name="Woman" type="CharacterBody2D"]
+[node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_lbwyf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0.1882353, 1, 1)
+self_modulate = Color(0.47155088, 0.7261033, 1.1551381e-06, 1)
+scale = Vector2(0.34, 0.34)
 texture = ExtResource("2_kset0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

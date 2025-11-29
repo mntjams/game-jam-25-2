@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=20 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c36ticp3qxjfv" path="res://assets/tileset/tilesheet2.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://mbypv7w6lcbn" path="res://scripts/game.gd" id="1_lbhrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
 [ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://b7hqtl0b4q6uw" path="res://scenes/npc.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_0tnpc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -269,3 +270,6 @@ position = Vector2(198.0246, 179.13342)
 
 [node name="Npc2" parent="NPCs" instance=ExtResource("8_gee14")]
 position = Vector2(209.02933, 66.53067)
+
+[node name="Woman" parent="NPCs" instance=ExtResource("9_0tnpc")]
+position = Vector2(291.29083, 156.83296)

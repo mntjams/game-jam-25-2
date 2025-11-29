@@ -24,7 +24,7 @@ func _collect_rooms() -> void:
 # connect all npc's from the npc group
 func _connect_existing_npcs() -> void:
 	for npc in get_tree().get_nodes_in_group("NPCs"):
-		#print(npc, "should be connected")
+		print(npc, "should be connected")
 		_connect_npc(npc)
 
 # connects single npc
