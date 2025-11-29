@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36ticp3qxjfv"
-path="res://.godot/imported/tilesheet2.png-c8ea20556e44b8e3bdfab9d59e7adf70.ctex"
+uid="uid://crypd4mr054ya"
+path="res://.godot/imported/man_brunet_blue.png-6308f03dd50b45b5af72370ed90d0301.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset/tilesheet2.png"
-dest_files=["res://.godot/imported/tilesheet2.png-c8ea20556e44b8e3bdfab9d59e7adf70.ctex"]
+source_file="res://assets/img/npc/man/man_brunet_blue.png"
+dest_files=["res://.godot/imported/man_brunet_blue.png-6308f03dd50b45b5af72370ed90d0301.ctex"]
 
 [params]
 

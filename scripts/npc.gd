@@ -7,7 +7,7 @@ signal ready_for_room(npc: Npc, from_room: Room) # signal the room manager to gi
 
 var current_room: Room = null
 var current_slot: Slot = null
-@export var movement_speed: float = 50.0
+@export var movement_speed: float = 500
 
 var work_time_base : float = 5
 var working : bool = false
