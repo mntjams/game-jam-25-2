@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cieuiwomnb3x8"]
+
+[ext_resource type="Script" uid="uid://bw8x8gdq4l838" path="res://scripts/test_minigame.gd" id="1_ivmg3"]
+[ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="2_sqcs8"]
+
+[node name="TestMinigame" type="CanvasLayer"]
+script = ExtResource("1_ivmg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sqcs8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

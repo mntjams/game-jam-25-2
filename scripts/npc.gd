@@ -11,9 +11,22 @@ var current_slot: Slot = null
 
 var work_time_base : float = 5.0
 var working : bool = false
+var interacting : bool = false
 
 @onready var stuck_timer: Timer = $StuckTimer
 @export var stuck_timeout: float = 5      # seconds before we assume stuck
+
+signal started_working(woman : Npc)
+
+# setting the interacting flag
+func set_interacting(val : bool) -> void:
+	interacting = val
+	
+func is_interacting() -> bool:
+	return interacting
+
+func set_working(val : bool) -> void:
+	working = val
 
 # --- NPC Movement ---------------------------------------------------------
 
@@ -61,6 +74,7 @@ func _ready() -> void:
 
 # what the npc should do when on the slot
 func _on_reached_slot() -> void:
+	emit_signal("started_working",self)
 	velocity = Vector2.ZERO
 	working = true
 	# NPC is at the slot. Do room-specific work here.
@@ -68,6 +82,9 @@ func _on_reached_slot() -> void:
 	var work_time = work_time_base + randf_range(-2.5,2.5)
 	#print(self,"started working for ",work_time," seconds")
 	await get_tree().create_timer(work_time).timeout
+	if is_interacting():
+		print(self," I cant leave I am interacting")
+		return
 	working = false
 	#print(self,"stopped working")
 	on_done_in_room()
@@ -87,6 +104,8 @@ func on_done_in_room() -> void:
 	#print(self,"I am done in this room")
 	emit_signal("ready_for_room", self, old_room)
 	
+func is_working():
+	return working
 
 # --- STUCK HANDLING ---
 
