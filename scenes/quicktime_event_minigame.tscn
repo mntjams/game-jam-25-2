@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq0nirjgy0wn8"]
+[gd_scene load_steps=2 format=3 uid="uid://evbakb8g615y"]
 
 [ext_resource type="Script" uid="uid://bu72pm531wiiw" path="res://scripts/quicktime_event_minigame.gd" id="1_e8an3"]
 
@@ -45,7 +45,6 @@ vertical_alignment = 2
 one_shot = true
 
 [node name="TimeBetweenEvents" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="TimeToHitEvent" to="." method="_on_time_to_hit_event_timeout"]

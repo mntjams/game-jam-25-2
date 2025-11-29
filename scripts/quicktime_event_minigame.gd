@@ -5,6 +5,9 @@ extends Control
 @onready var time_between_events: Timer = $TimeBetweenEvents
 @onready var label: Label = $LabelControl/Label
 
+var sound_effects: Array[AudioStreamMP3]
+var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
+
 var current_key: Key
 var current_letter: String = 'x'
 var key_already_pressed: bool = false
@@ -21,15 +24,17 @@ var key_map: Array = [
 signal quicktime_event_finished
 
 func _ready() -> void:
+	sound_effects = load_sounds(sound_path)
+	print(sound_effects)
 	start_event()
 	
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(current_key) and not key_already_pressed:
 		key_already_pressed = true
-		print("Correct key was pressed!")
+		play_random_sound()
 		successes_needed -= 1
+		print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
-	
 		if successes_needed == 0:
 			emit_signal("quicktime_event_finished")
 			print("quicktime event finished")
@@ -54,7 +59,47 @@ func start_event() -> void:
 func get_random_wasd():
 	var key_and_char = key_map[randi() % key_map.size()]
 	return key_and_char
+	
+func load_sounds(path: String) -> Array[AudioStreamMP3]:
+	var sfxs : Array[AudioStreamMP3] = []
+	
+	var dir := DirAccess.open(path)
 
+	if dir == null:
+		push_error("Cannot open directory: " + path)
+		return sfxs
+
+	dir.list_dir_begin()
+
+	while true:
+		var file := dir.get_next()
+		if file == "":
+			break
+		if dir.current_is_dir():
+			continue
+		
+		if file.ends_with("mp3"):
+			var stream := load(path + file)
+			if stream:
+				sfxs.append(stream)
+
+	dir.list_dir_end()
+	return sfxs
+
+func get_random_sound() -> AudioStreamMP3:
+	return sound_effects[randi() % sound_effects.size()]
+
+func play_random_sound() -> void:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+
+	player.stream = get_random_sound()
+	player.play()
+
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
 func _on_time_to_hit_event_timeout() -> void:
 	print("Time to hit event timeout!")
 	label.visible = false
