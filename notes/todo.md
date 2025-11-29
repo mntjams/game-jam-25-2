@@ -22,6 +22,13 @@ IMPORTANT:
 - bar for interest of women
 - hide press e to interact when starting interaction
 
+## Vláďa
+- piss
+- sloty
+
+## Matouš
+- sfx na piss a sloty
+
 BONUS:
 - rizz bar
 - particles when dancing
