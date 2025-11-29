@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 		if successes_needed == 0:
 			emit_signal("finished", true)
 			print("quicktime event finished")
+			queue_free()
 			return
 		_on_time_to_hit_event_timeout()
 
