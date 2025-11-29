@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var movement_speed: float = 200
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var mouse_position: Vector2 = get_global_mouse_position()
 	navigate_to(mouse_position)
 	
