@@ -25,7 +25,7 @@ signal finished(success: bool)
 
 func start() -> void:
 	sound_effects = load_sounds(sound_path)
-	print(sound_effects)
+	#print(sound_effects)
 	start_event()
 	
 func _process(_delta: float) -> void:
@@ -33,17 +33,17 @@ func _process(_delta: float) -> void:
 		key_already_pressed = true
 		play_random_sound()
 		successes_needed -= 1
-		print("Correct key was pressed! Need this many succ: " + str(successes_needed))
+		#print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
 		if successes_needed == 0:
-			emit_signal("finished", true)
-			print("quicktime event finished")
+			emit_signal("finished", true, 50.0)
+			#print("quicktime event finished")
 			queue_free()
 			return
 		_on_time_to_hit_event_timeout()
 
 func start_event() -> void:
-	print("starting event")
+	#print("starting event")
 	
 	key_already_pressed = false
 	
@@ -102,7 +102,7 @@ func play_random_sound() -> void:
 	)
 	
 func _on_time_to_hit_event_timeout() -> void:
-	print("Time to hit event timeout!")
+	#print("Time to hit event timeout!")
 	label.visible = false
 	time_between_events.start()
 
