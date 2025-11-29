@@ -1,12 +1,15 @@
-[gd_scene load_steps=21 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=24 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c0wniu4xlqgiy" path="res://assets/img/tiles/tileset.png" id="2_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cnqvyca6wo77l" path="res://scenes/player.tscn" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="6_gee14"]
 [ext_resource type="Script" path="res://scripts/slot.gd" id="7_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/crowd-chatter.mp3" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/city-ambience.mp3" id="8_vtaks"]
+[ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dinhu"]
 vertices = PackedVector2Array(75, 75, -75, 75, -75, -75, 75, -75)
@@ -116,6 +119,9 @@ tile_set = SubResource("TileSet_feb5d")
 [node name="Player" parent="." instance=ExtResource("3_u5sy4")]
 position = Vector2(436, 184)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+current = true
+
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("5_0tnpc")
 
@@ -130,6 +136,12 @@ script = ExtResource("7_0tnpc")
 [node name="Slot3" type="Node2D" parent="RoomManager/Room1"]
 position = Vector2(-31.976135, 242.19678)
 script = ExtResource("7_0tnpc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Room1"]
+stream = ExtResource("8_0tnpc")
+autoplay = true
+max_distance = 1500.0
+attenuation = 3.732131
 
 [node name="Room2" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(1423.5042, 223.26004)
@@ -151,6 +163,12 @@ script = ExtResource("7_0tnpc")
 position = Vector2(248.99927, 132.28091)
 script = ExtResource("7_0tnpc")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Room2"]
+stream = ExtResource("9_0tnpc")
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.84089655
+
 [node name="Room3" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(397.6786, 1147.9294)
 script = ExtResource("6_gee14")
@@ -171,18 +189,24 @@ script = ExtResource("7_0tnpc")
 position = Vector2(204.90576, 80.406006)
 script = ExtResource("7_0tnpc")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Room3"]
+stream = ExtResource("8_vtaks")
+autoplay = true
+max_distance = 450.0
+attenuation = 19.027283
+
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="Woman" parent="NPCs" instance=ExtResource("9_0tnpc")]
+[node name="Woman" parent="NPCs" instance=ExtResource("9_vtaks")]
 position = Vector2(587.0436, 663.4206)
 
-[node name="Woman2" parent="NPCs" instance=ExtResource("9_0tnpc")]
+[node name="Woman2" parent="NPCs" instance=ExtResource("9_vtaks")]
 position = Vector2(216.91537, 399.14)
 
-[node name="Woman3" parent="NPCs" instance=ExtResource("9_0tnpc")]
+[node name="Woman3" parent="NPCs" instance=ExtResource("9_vtaks")]
 position = Vector2(1269.2227, 649.81586)
 
-[node name="Woman4" parent="NPCs" instance=ExtResource("9_0tnpc")]
+[node name="Woman4" parent="NPCs" instance=ExtResource("9_vtaks")]
 position = Vector2(781.1576, 340.6785)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
