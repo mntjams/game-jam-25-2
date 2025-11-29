@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu334cuqasltr"
-path="res://.godot/imported/man_brunet_green.png-17fa616d2126d015e773574ab45e5d20.ctex"
+uid="uid://c5k2w5mjhhqhi"
+path="res://.godot/imported/man_blonde_green.png-ac40dcadd5a83dce7c69fb2df46f6dad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc/man/man_brunet_green.png"
-dest_files=["res://.godot/imported/man_brunet_green.png-17fa616d2126d015e773574ab45e5d20.ctex"]
+source_file="res://assets/img/npc/man/man_blonde_green.png"
+dest_files=["res://.godot/imported/man_blonde_green.png-ac40dcadd5a83dce7c69fb2df46f6dad.ctex"]
 
 [params]
 

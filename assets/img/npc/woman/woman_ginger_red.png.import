@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpa1uw8crbalq"
-path="res://.godot/imported/woman_blue.png-9bec4d37f436bdd37e9bccc7c178888f.ctex"
+uid="uid://bkio4bri0qql1"
+path="res://.godot/imported/woman_ginger_red.png-e231729cb8c0e9cfc18d16080641acd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/woman_blue.png"
-dest_files=["res://.godot/imported/woman_blue.png-9bec4d37f436bdd37e9bccc7c178888f.ctex"]
+source_file="res://assets/img/npc/woman/woman_ginger_red.png"
+dest_files=["res://.godot/imported/woman_ginger_red.png-e231729cb8c0e9cfc18d16080641acd7.ctex"]
 
 [params]
 

@@ -1,21 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://qoe1t1c24c7u"]
 
 [ext_resource type="Script" uid="uid://caxcmxtqm03ho" path="res://scripts/woman.gd" id="1_lbwyf"]
-[ext_resource type="Texture2D" uid="uid://b1sbwmgxviw67" path="res://assets/img/icon.svg" id="2_kset0"]
+[ext_resource type="Texture2D" uid="uid://w4w6bpl26l4a" path="res://assets/img/npc/woman/woman_blonde_blue.png" id="2_lbwyf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbwyf"]
-radius = 20.0
+radius = 54.0
 
 [node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_lbwyf")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-self_modulate = Color(0.47155088, 0.7261033, 1.1551381e-06, 1)
-scale = Vector2(0.34, 0.34)
-texture = ExtResource("2_kset0")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lbwyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_lbwyf")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

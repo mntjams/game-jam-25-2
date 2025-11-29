@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkc1cxwhhp5d6"
-path="res://.godot/imported/man_black_violet.png-8355cfc4fe2652a18f816291885f2c23.ctex"
+uid="uid://dr7v4yx6y2rfr"
+path="res://.godot/imported/woman_blonde_violet.png-9a8820f15e43480f499fdfab2d438780.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc/man/man_black_violet.png"
-dest_files=["res://.godot/imported/man_black_violet.png-8355cfc4fe2652a18f816291885f2c23.ctex"]
+source_file="res://assets/img/npc/woman/woman_blonde_violet.png"
+dest_files=["res://.godot/imported/woman_blonde_violet.png-9a8820f15e43480f499fdfab2d438780.ctex"]
 
 [params]
 

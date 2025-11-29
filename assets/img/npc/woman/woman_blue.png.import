@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xs41dniv2dv1"
-path="res://.godot/imported/tileset.png-218b1cd328d4a6bb2a92921ac4ad6862.ctex"
+uid="uid://bpa1uw8crbalq"
+path="res://.godot/imported/woman_blue.png-83385340e9ad6729eb2bd09d2f666258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tiles/processed_tiles/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-218b1cd328d4a6bb2a92921ac4ad6862.ctex"]
+source_file="res://assets/img/npc/woman/woman_blue.png"
+dest_files=["res://.godot/imported/woman_blue.png-83385340e9ad6729eb2bd09d2f666258.ctex"]
 
 [params]
 

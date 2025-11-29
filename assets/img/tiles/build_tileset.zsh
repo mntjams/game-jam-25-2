@@ -18,7 +18,7 @@ echo "Found ${#src_tiles[@]} source tiles"
 shave_left=83
 shave_right=78
 shave_top=75
-shave_bottom=82
+shave_bottom=84
 
 # Final tile size after crop (change to 32 if you really want 32x32)
 target_size=150
