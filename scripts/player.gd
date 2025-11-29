@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var women_in_sight : Array[InteractableWoman] = []
-var movement_speed: float = 200
+var movement_speed: float = 800
 
 signal woman_entered_sight
 signal no_woman_in_sight
