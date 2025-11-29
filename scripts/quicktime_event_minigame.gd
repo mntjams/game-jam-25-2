@@ -21,9 +21,9 @@ var key_map: Array = [
 
 ]
 
-signal quicktime_event_finished
+signal finished(success: bool)
 
-func _ready() -> void:
+func start() -> void:
 	sound_effects = load_sounds(sound_path)
 	print(sound_effects)
 	start_event()
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
 		if successes_needed == 0:
-			emit_signal("quicktime_event_finished")
+			emit_signal("finished", true)
 			print("quicktime event finished")
 			return
 		_on_time_to_hit_event_timeout()
