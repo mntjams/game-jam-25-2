@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdjic56em6en7"]
+
+[ext_resource type="Script" uid="uid://fe7csrv44mrc" path="res://scripts/kompars.gd" id="1_a8nmi"]
+[ext_resource type="Texture2D" uid="uid://b1sbwmgxviw67" path="res://assets/img/icon.svg" id="2_kyx0r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pve6d"]
+radius = 20.0
+
+[node name="Kompars" type="CharacterBody2D"]
+self_modulate = Color(1, 1, 0.011764706, 1)
+script = ExtResource("1_a8nmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_kyx0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pve6d")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
