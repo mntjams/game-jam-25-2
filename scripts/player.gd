@@ -18,6 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			print(self,"no women here")
 		elif women_in_sight.size() == 1:	
 			if women_in_sight[0].is_working():
+				emit_signal("no_woman_in_sight")
 				start_interaction()
 		elif women_in_sight.size() > 1:
 			print(self,"whooops")

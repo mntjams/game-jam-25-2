@@ -21,6 +21,7 @@ IMPORTANT:
 
 ## Janek
 - bar for interest of women
+- hide press e to interact when starting interaction
 
 BONUS:
 - [ ] spatial audio (hráč slyší zvuky dle toho, jak je blízko lokaci)
