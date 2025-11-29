@@ -37,6 +37,9 @@ func _update_interest_bar_value() -> void:
 
 # --- Interest and interaction logic---
 
+func is_working() -> bool:
+	return super.is_working()
+
 # start interacting with the player
 func start_interaction(player : Player) -> void:
 	print(self, "hi boy. you are ",player)

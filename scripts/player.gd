@@ -13,11 +13,12 @@ var is_interacting = false
 
 # --- Woman interaction ---
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"): # "interact" bound to E
+	if event.is_action_pressed("interact") and not is_interacting: # "interact" bound to E
 		if women_in_sight.size() == 0:
 			print(self,"no women here")
 		elif women_in_sight.size() == 1:	
-			start_interaction()
+			if women_in_sight[0].is_working():
+				start_interaction()
 		elif women_in_sight.size() > 1:
 			print(self,"whooops")
 
