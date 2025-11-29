@@ -5,6 +5,7 @@ extends Node2D
 
 var dir = 1
 var interest_gained : float = 10
+var finished_mini : bool = false
 
 signal finished(success: bool, interest_gained : float)
 
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		won()
 		#TODO: fix sweet spot here
 	
-	if not finished:
+	if not finished_mini:
 		var tween = get_tree().create_tween()
 		var val = slider.value
 		var vel = 2+16/(abs(50-val)+1)
