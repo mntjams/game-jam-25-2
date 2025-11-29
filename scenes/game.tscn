@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=33 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://h4evjbxm6uvl" path="res://assets/img/tiles/tileset2.png" id="1_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dvoeqqmnfxh6r" path="res://assets/img/tiles/tileset3.png" id="2_kvuet"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/slots.mp3" id="11_trtic"]
+[ext_resource type="PackedScene" uid="uid://cieuiwomnb3x8" path="res://scenes/test_minigame.tscn" id="12_trtic"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sgl2t"]
 vertices = PackedVector2Array(75, 75, -75, 75, -75, -75, 75, -75)
@@ -297,6 +298,7 @@ attenuation = 0.45062456
 [node name="Toilet" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(-189.32977, 225.87762)
 script = ExtResource("6_gee14")
+minigame_scene = ExtResource("12_trtic")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Toilet"]
 position = Vector2(568.50653, -142.12665)
