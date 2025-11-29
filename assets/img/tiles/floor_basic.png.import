@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t3yx8xd6huay"
-path="res://.godot/imported/wc_tile_lipstick.png-f470c4e47067f3fa95ef82842865c042.ctex"
+uid="uid://65545xd62om7"
+path="res://.godot/imported/floor_basic.png-288edb189e08e377fc5f74169d9a72bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/wc_tile_lipstick.png"
-dest_files=["res://.godot/imported/wc_tile_lipstick.png-f470c4e47067f3fa95ef82842865c042.ctex"]
+source_file="res://assets/img/tiles/floor_basic.png"
+dest_files=["res://.godot/imported/floor_basic.png-288edb189e08e377fc5f74169d9a72bf.ctex"]
 
 [params]
 

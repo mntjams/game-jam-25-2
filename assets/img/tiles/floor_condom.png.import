@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ysn24rv8c8jc"
-path="res://.godot/imported/floor_condom.png-6a1e73ce2949e7cee3c2b8b10984dd99.ctex"
+path="res://.godot/imported/floor_condom.png-7decc088f99bcca7acbba76d45d55519.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/floor_condom.png"
-dest_files=["res://.godot/imported/floor_condom.png-6a1e73ce2949e7cee3c2b8b10984dd99.ctex"]
+source_file="res://assets/img/tiles/floor_condom.png"
+dest_files=["res://.godot/imported/floor_condom.png-7decc088f99bcca7acbba76d45d55519.ctex"]
 
 [params]
 

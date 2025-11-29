@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1jfurot63k5n"
-path="res://.godot/imported/dancefloor_pink.png-6826997dd5b29efd039c2669133c7c75.ctex"
+uid="uid://c0wniu4xlqgiy"
+path="res://.godot/imported/tileset.png-cc2e67f699a6e83870923748de33bbc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/dancefloor_pink.png"
-dest_files=["res://.godot/imported/dancefloor_pink.png-6826997dd5b29efd039c2669133c7c75.ctex"]
+source_file="res://assets/img/tiles/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-cc2e67f699a6e83870923748de33bbc6.ctex"]
 
 [params]
 

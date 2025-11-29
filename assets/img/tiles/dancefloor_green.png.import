@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmv8jgxu25wsr"
-path="res://.godot/imported/floor_cigarette.png-7393648e9b2ceeab20adb5fe86a2019b.ctex"
+uid="uid://bai1mwwcu0ypq"
+path="res://.godot/imported/dancefloor_green.png-fd3a660d573a0d0fca86f41c1d25256a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/floor_cigarette.png"
-dest_files=["res://.godot/imported/floor_cigarette.png-7393648e9b2ceeab20adb5fe86a2019b.ctex"]
+source_file="res://assets/img/tiles/dancefloor_green.png"
+dest_files=["res://.godot/imported/dancefloor_green.png-fd3a660d573a0d0fca86f41c1d25256a.ctex"]
 
 [params]
 
