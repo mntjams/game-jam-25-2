@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=19 format=4 uid="uid://cdtnc2ucqxpfl"]
 
 [ext_resource type="Texture2D" uid="uid://c36ticp3qxjfv" path="res://assets/tileset/tilesheet2.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://mbypv7w6lcbn" path="res://scripts/game.gd" id="1_lbhrr"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
 [ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
-[ext_resource type="Script" uid="uid://dlffx8dgipla7" path="res://scripts/npc.gd" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://b7hqtl0b4q6uw" path="res://scenes/npc.tscn" id="8_gee14"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yqjtg"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -177,8 +177,6 @@ sources/1 = SubResource("TileSetAtlasSource_e2o6t")
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
@@ -263,21 +261,8 @@ script = ExtResource("7_0tnpc")
 
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="Npc" type="CharacterBody2D" parent="NPCs" groups=["NPCs"]]
+[node name="Npc" parent="NPCs" instance=ExtResource("8_gee14")]
 position = Vector2(198.0246, 179.13342)
-script = ExtResource("8_gee14")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPCs/Npc"]
-path_desired_distance = 1.0
-target_desired_distance = 1.0
-debug_enabled = true
-debug_use_custom = true
-debug_path_custom_color = Color(0.40815094, 0.719206, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Npc"]
-scale = Vector2(1.65, 1.65)
-shape = SubResource("CircleShape2D_0tnpc")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPCs/Npc"]
-scale = Vector2(0.26, 0.26)
-texture = ExtResource("2_yqjtg")
+[node name="Npc2" parent="NPCs" instance=ExtResource("8_gee14")]
+position = Vector2(209.02933, 66.53067)
