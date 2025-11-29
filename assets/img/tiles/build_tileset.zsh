@@ -52,25 +52,3 @@ for f in "${src_tiles[@]}"; do
     -background none \
     "$processed_dir/$f"
 done
-
-# Now build atlas from processed tiles
-cd "$processed_dir"
-
-tiles=( *.png(.N) )
-if (( ${#tiles[@]} == 0 )); then
-  echo "No processed tiles found"
-  exit 1
-fi
-
-cols=4
-rows=$(( (${#tiles[@]} + cols - 1) / cols ))
-
-echo "Building tileset.png with ${#tiles[@]} tiles, ${cols} columns, ${rows} rows..."
-
-magick montage "${tiles[@]}" \
-  -tile ${cols}x${rows} \
-  -geometry +0+0 \
-  -background none \
-  ../tileset.png
-
-echo "Done -> tileset.png"
