@@ -77,3 +77,4 @@ func progress_taxi():
 	
 	# remove taxi
 	taxi_path_follow.visible = false
+	# TODO: IMPLEMENT GAME FINISH HERE!!!
