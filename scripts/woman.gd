@@ -49,7 +49,7 @@ func start_interaction(player : Player) -> void:
 	current_room.start_minigame_for(self, player)
 
 func fall_in_love():
-	print("I am going to final room now")
+	# print("I am going to final room now")
 	in_love = true
 	super.go_to_final_room()
 	super.emit_fallen_in_love()
