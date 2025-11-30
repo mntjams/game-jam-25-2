@@ -6,15 +6,12 @@ IMPORTANT:
 
 - bar výhra zvuk a dance výhra zvuk
 
-- nejde interact, když dvě ženy naráz
+- fix čerevný oucapek u slot machine při výhře
 
 - game finish
   - po fade outu nějaké vyhodnocení toho, jak si hráč vedl
 
-- popis, co se má dělat u miniher ! 
 - upravit vizuál u miniher
-
-- zvuk při success (kromě pártiklů)
 
 - dokončit vizuál mapy
 
@@ -26,6 +23,7 @@ IMPORTANT:
 - srdíčka particles a efekty
 
 ## Matouš
+- popis, co se má dělat u miniher ! 
 - sfx na sloty
 
 BONUS:
