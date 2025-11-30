@@ -10,6 +10,12 @@ var tween = null
 var origin_pos = 0
 # Called when the node enters the scene tree for the first time.
 
+const lighter_sfx_path: String = "res://assets/sounds/sfx/smoking/lighter.mp3"
+const burning_sfx_path: String = "res://assets/sounds/sfx/smoking/burning-cig.mp3"
+const exhale_sfx_path: String = "res://assets/sounds/sfx/smoking/smoke-exhale.mp3"
+
+var burning_sfx_player: AudioStreamPlayer
+
 signal finished(success: bool, interest_gained : float)
 
 var interest_gained : float = 10.0
@@ -18,6 +24,8 @@ func start():
 	pass
 
 func _ready() -> void:
+	start_audio()
+	
 	var sweet_spot = randf_range(0.3, 0.5)
 	var margin = (1-sweet_spot) * full.size.x
 	good.size.x -= margin
@@ -55,12 +63,37 @@ func _physics_process(delta: float) -> void:
 func _won():
 	finished_game = true
 	# print("Won")
-	emit_signal("finished", true, interest_gained)
-	queue_free()
+	
+	burning_sfx_player.stop()
+	burning_sfx_player.queue_free()
+	
+	var player: AudioStreamPlayer = play_audio(exhale_sfx_path)
+	player.finished.connect(func():
+		emit_signal("finished", true, interest_gained)
+		queue_free()
+	)
 	
 func _lost():
 	finished_game = true
 	# print("Lost")
 	emit_signal("finished", false, interest_gained)
 	queue_free()
+
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
 	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player
+	
+func start_audio() -> void:
+	var player: AudioStreamPlayer = play_audio(lighter_sfx_path)
+	player.finished.connect(func():
+		burning_sfx_player = play_audio(burning_sfx_path)
+	)

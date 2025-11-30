@@ -13,30 +13,17 @@ var women_costume_textures: Array[Texture2D] = []
 signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
-@onready var interest_bar: Label = $InterestBar
-@onready var progress : ProgressBar = $Sprite2D/ProgressBar
+@onready var progress_bar : ProgressBar = $Sprite2D/ProgressBar
 
 const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
-var interest : float = 0.0
+var interest : float = 0
 
 # --- Interest bar logic
 
 func _init_interest_bar() -> void:
-	interest_bar.text = "0"
-	interest_bar.visible = false
+	animate_progress_bar(interest)
 
-func _update_interest_bar_visibility() -> void:
-	# Show only while player is inside Area2D
-	interest_bar.visible = player_in_range
-
-func _update_interest_bar_value() -> void:
-	interest_bar.text = str(interest)
-#
-#func _update_interest_bar_value() -> void:
-	#interest_bar.value = interest
-
-# --- Interest and interaction logic---
 
 func is_working() -> bool:
 	return super.is_working()
@@ -65,29 +52,37 @@ func finish_interaction(success : bool, interest_gained : float) -> void:
 	super._restart_stuck_timer()
 	super.on_done_in_room()
 
-func gain_interest(interest_gained : float):
-	var gained := interest_gained
-	#print(self," You cool dude, I am really interested")
-	interest = clamp(interest + gained, 0.0, 100.0)
+func animate_progress_bar(interest_gained : float):
 	var tween = get_tree().create_tween()
-	tween.tween_property(progress, "value", interest, 0.5)
+	var fill := StyleBoxFlat.new()
+	if interest_gained > 0:
+		fill.bg_color = Color("#60b200b0") # dark gray
+	elif interest_gained < 0:
+		fill.bg_color = Color.DARK_RED
+	progress_bar.add_theme_stylebox_override("fill", fill)
+	tween.tween_property(progress_bar, "value", interest, 0.5)
+	await tween.finished
+	fill.bg_color = Color("#60b200b0")
+	progress_bar.add_theme_stylebox_override("fill", fill)
+
+func gain_interest(interest_gained : float):
+	#print(self," You cool dude, I am really interested")
+	interest = clamp(interest + interest_gained, 0.0, 100.0)
+	animate_progress_bar(interest_gained)
 	if interest >= INTEREST_LIMIT:
 		fall_in_love()
-	_update_interest_bar_value()	
 
 # --- Player tracking logic ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_in_range = true
 		emit_signal("approached_by_player",self, super.is_working())
-		_update_interest_bar_visibility()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_in_range = false
 	if body.name == "Player":
 		emit_signal("player_left",self)
-		_update_interest_bar_visibility()
 
 # --- BEHAVIOR LOGIC ---
 func _ready() -> void:
