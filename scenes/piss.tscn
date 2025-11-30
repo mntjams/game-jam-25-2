@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1d0gmpbb78he" path="res://scripts/piss.gd" id="1_u8csm"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="2_3jfbr"]
-[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="3_a2rcf"]
+[ext_resource type="PackedScene" path="res://scenes/minigame_label.tscn" id="3_a2rcf"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3jfbr"]
 color = Color(0, 1, 0, 1)
@@ -52,7 +52,11 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
 
 [node name="Label" parent="CanvasLayer" instance=ExtResource("3_a2rcf")]
 offset_left = 502.0
-offset_top = 825.0
-offset_right = 1521.0
-offset_bottom = 908.0
-text = "Press SPACE when you are on toilet"
+offset_top = 770.425
+offset_right = 1520.9999
+offset_bottom = 939.425
+theme_override_font_sizes/font_size = 64
+text = "Press 'SPACE' to poop
+... and don't miss the toilet ..."
+horizontal_alignment = 1
+vertical_alignment = 2
