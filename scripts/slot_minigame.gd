@@ -2,7 +2,7 @@ extends Node2D
 
 signal finished(success: bool, interest_gained : float)
 
-var interest_gained : float = 10
+var interest_gained : float = 30
 var shift : float = 6
 var down_speed : float = 0.2
 @onready var slider = $CanvasLayer/slot

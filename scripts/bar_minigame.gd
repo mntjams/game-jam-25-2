@@ -16,8 +16,8 @@ var won = false
 signal finished(success: bool, interest_gained : float)
 
 @onready var win_timer = $WinTimer
-var lost_reward = -10
-var win_reward = 10
+var lost_reward = -15
+var win_reward = 30
 
 
 # Called when the node enters the scene tree for the first time.

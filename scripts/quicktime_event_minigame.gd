@@ -30,7 +30,7 @@ var key_map: Array = [
 
 ]
 
-var interest_gained : float = 10
+var interest_gained : float = 30
 
 signal finished(success: bool)
 
