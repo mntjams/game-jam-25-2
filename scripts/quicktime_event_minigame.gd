@@ -4,6 +4,7 @@ extends Control
 @onready var time_to_hit_event: Timer = $TimeToHitEvent
 @onready var time_between_events: Timer = $TimeBetweenEvents
 @onready var label: Label = $LabelControl/Label
+@onready var tutorial_label: Label = $LabelControl/TutorialLabel
 #@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
@@ -34,15 +35,17 @@ func start() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(current_key) and not key_already_pressed:
 		key_already_pressed = true
-		play_random_sound()
 		successes_needed -= 1
 		#print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
 		if successes_needed == 0:
 			emit_signal("finished", true, interest_gained)
 			#print("quicktime event finished")
-			queue_free()
+			play_random_sound(true)
 			return
+		else:
+			play_random_sound(false)
+
 		_on_time_to_hit_event_timeout()
 
 func start_event() -> void:
@@ -97,19 +100,25 @@ func load_sounds(path: String) -> Array[AudioStreamMP3]:
 func get_random_sound() -> AudioStreamMP3:
 	return sound_effects[randi() % sound_effects.size()]
 
-func play_random_sound() -> void:
+func play_random_sound(should_free: bool) -> void:
+	# print("Playing sound, should it be free?", should_free)
 	var player := AudioStreamPlayer.new()
 	add_child(player)
 
 	player.stream = get_random_sound()
-	player.play()
-
 	player.finished.connect(func():
 		player.queue_free()
 	)
 	
+	if should_free:
+		tutorial_label.visible = false
+		label.visible = false
+		player.finished.connect(func(): queue_free())
+		
+	player.play()
+	
 func _on_time_to_hit_event_timeout() -> void:
-	#print("Time to hit event timeout!")
+	print("Time to hit event timeout!")
 	
 	#var tween = get_tree().create_tween()
 	#tween.stop()
