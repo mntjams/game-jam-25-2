@@ -40,6 +40,7 @@ func _on_player_started_interacting(woman : InteractableWoman):
 
 func handle_spotted_event():
 	# TODO: handle spotted event
+	$Sprite2D/CPUParticles2D2.emitting = true
 	print("what are you doing with this girl")
 	pass
 
