@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		else: tween.tween_property(slider,"value", slider.value-down_speed,delta)
 
 func won():
-	print("won")
+	# print("won")
 	$CanvasLayer/slot/CPUParticles2D.emitting = true
 	await get_tree().create_timer(1).timeout
 	emit_signal("finished", true, interest_gained)
