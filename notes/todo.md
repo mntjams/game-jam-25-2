@@ -18,7 +18,8 @@ IMPORTANT:
 - srdíčka particles when interest 100
 
 ## Janek
-- bar minigame integrate
+- game finish
+  - nějaký fade out na konec
 
 ## Vláďa
 - srdíčka particles a efekty
