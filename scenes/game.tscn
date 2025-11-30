@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://2j8ycxlaqaci" path="res://assets/img/tiles/tileset5.png" id="5_bt5mj"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
-[ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://djw1g57ulhikm" path="res://scripts/slot.gd" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bp12pkyargj6h" path="res://assets/img/tiles/tileset6.png" id="7_e1j6l"]
 [ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/ambiences/crowd-chatter.mp3" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
@@ -249,7 +249,7 @@ tile_map_data = PackedByteArray("AAAHAAUAAQABAAIAAAAHAAYAAQACAAIAAAAHAAcAAQADAAI
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_u5sy4")]
-position = Vector2(736, 1102)
+position = Vector2(2735.2407, 1094.0535)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 current = true
@@ -431,25 +431,25 @@ attenuation = 1.7411011
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Woman" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(457, 1394)
+position = Vector2(723.42505, 368.25952)
 
 [node name="Woman2" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(939, 1064)
+position = Vector2(2409.8853, 410.61353)
 
 [node name="Woman3" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(927, 1354)
+position = Vector2(2496.518, 1550.3217)
 
 [node name="Woman4" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(483, 1078)
+position = Vector2(1676.3905, 1687.0096)
 
 [node name="Woman5" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(483, 1078)
+position = Vector2(939.04553, 1656.2068)
 
 [node name="Woman6" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(413, 688)
+position = Vector2(294.10925, 1519.5188)
 
 [node name="Woman7" parent="NPCs" instance=ExtResource("9_vtaks")]
-position = Vector2(745, 794)
+position = Vector2(296.0345, 660.8873)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

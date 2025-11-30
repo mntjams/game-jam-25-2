@@ -20,6 +20,7 @@ var burning_sfx_player: AudioStreamPlayer
 signal finished(success: bool, interest_gained : float)
 
 var interest_gained : float = 30
+var interest_lost : float = -10
 
 func start():
 	pass
@@ -80,7 +81,7 @@ func _lost():
 	label.visible = false
 	finished_game = true
 	play_audio(cough_sfx_path).finished.connect(func():
-		emit_signal("finished", false, interest_gained)
+		emit_signal("finished", true, interest_lost)
 		queue_free()
 	)
 	# print("Lost")

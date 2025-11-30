@@ -50,7 +50,7 @@ func go_to_slot(room: Room, slot: Slot) -> void:
 func _navigate_to(destination: Vector2) -> void:
 	navigation_agent_2d.target_position = destination
 	# print("setting target position to ", destination)
-
+	
 func _physics_process(_delta: float) -> void:
 	
 	if working: # anti vibration
@@ -58,7 +58,11 @@ func _physics_process(_delta: float) -> void:
 		return
 	if navigation_agent_2d.is_navigation_finished() and angry:
 		#print("got to end")
-		queue_free()
+		GM.bitches_left -= 1
+		if GM.bitches_left == 0:
+			get_tree().change_scene_to_file("res://scenes/zero.tscn")
+		else:
+			queue_free()
 	
 	# If path is finished, we are at (or very near) the slot
 	if navigation_agent_2d.is_navigation_finished() and not working:
@@ -91,7 +95,8 @@ func _on_reached_slot() -> void:
 	# When the work is finished, call `on_done_in_room()`.
 	var work_time = work_time_base + randf_range(-2.5,2.5)
 	#print(self,"started working for ",work_time," seconds")
-	await get_tree().create_timer(work_time).timeout
+	if not angry:
+		await get_tree().create_timer(work_time).timeout
 	if is_interacting():
 		# print(self," I cant leave I am interacting")
 		return
