@@ -196,7 +196,31 @@ func _load_costumes(from_path : String) -> Array[Texture2D]:
 
 
 func _apply_random_costume() -> void:
-	var costume_textures = men_costume_textures + women_costume_textures
+	var costumes_paths = [
+		"res://assets/img/npc/woman/woman_blonde_blue.png",
+		"res://assets/img/npc/woman/woman_blonde_red.png",
+		"res://assets/img/npc/woman/woman_blonde_violet.png",
+		"res://assets/img/npc/woman/woman_blue.png",
+		"res://assets/img/npc/woman/woman_ginger_blue.png",
+		"res://assets/img/npc/woman/woman_ginger_red.png",
+		"res://assets/img/npc/woman/woman_ginger_violet.png",
+		"res://assets/img/npc/woman/woman_red.png",
+		"res://assets/img/npc/woman/woman_violet.png",
+		"res://assets/img/npc/man/man_black_blue.png",
+		"res://assets/img/npc/man/man_black_green.png",
+		"res://assets/img/npc/man/man_black_violet.png",
+		"res://assets/img/npc/man/man_blonde_blue.png",
+		"res://assets/img/npc/man/man_blonde_green.png",
+		"res://assets/img/npc/man/man_blonde_violet.png",
+		"res://assets/img/npc/man/man_brunet_blue.png",
+		"res://assets/img/npc/man/man_brunet_green.png",
+		"res://assets/img/npc/man/man_brunet_violet.png"
+	]
+	
+	var costume_textures: Array[Texture2D]
+	for costume in costumes_paths:
+		costume_textures.append(load(costume))
+		
 	if costume_textures.is_empty():
 		return
 
