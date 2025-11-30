@@ -343,10 +343,11 @@ position = Vector2(283.91736, 19.470947)
 script = ExtResource("7_0tnpc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Balcony"]
+position = Vector2(-20.758057, -7.8728027)
 stream = ExtResource("8_vtaks")
 autoplay = true
-max_distance = 450.0
-attenuation = 2.1435435
+max_distance = 770.0
+attenuation = 0.7071056
 
 [node name="Machines" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(532.58203, 2037.4222)
