@@ -50,7 +50,7 @@ func _subscribe_to_player_interaction_signal() -> void:
 		player.started_interacting_with.connect(_on_player_started_interacting)
 
 func update_spotting_area_visibility():
-	if interest > 0:
+	if interest > 0 and not in_love:
 		spotting_area.visible = true
 	else:
 		spotting_area.visible = false
@@ -105,9 +105,9 @@ func gain_interest(interest_gained : float):
 	#print(self," You cool dude, I am really interested")
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
-	update_spotting_area_visibility()
 	if interest >= INTEREST_LIMIT:
 		fall_in_love()
+	update_spotting_area_visibility()
 
 # --- Player tracking logic ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
