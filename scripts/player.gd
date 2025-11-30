@@ -9,6 +9,8 @@ var movement_speed: float = 1000
 signal woman_entered_sight
 signal no_woman_in_sight
 
+signal started_interacting_with(woman : InteractableWoman)
+
 var is_interacting = false
 
 # --- Woman interaction ---
@@ -33,6 +35,7 @@ func do_particles():
 
 func start_interaction():
 		var woman : InteractableWoman = women_in_sight[0]
+		emit_signal("started_interacting_with",woman)
 		woman.start_interaction(self)
 		is_interacting = true
 		#print(self,"hey girl whatsup")
