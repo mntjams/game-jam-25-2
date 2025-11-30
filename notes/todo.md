@@ -16,14 +16,13 @@ IMPORTANT:
 - dokončit vizuál mapy
 
 ## Playtest shit
+
+- when leaving with girl interact button still visible
+
 - více času než přijede taxi
 - možná text, ať zkusíme zbalit více ženských?
 
 - zvuk kroků
-- hlavni postava výběr
-
-- text bar minigame překrývá židli
-- slot machine červený oucapek
 
 ## Janek
 - game finish
@@ -37,6 +36,7 @@ IMPORTANT:
 - sfx na sloty
 
 BONUS:
+- hlavni postava výběr
 - rizz bar
 - particles when dancing
 - animated dj
