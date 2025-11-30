@@ -15,6 +15,16 @@ IMPORTANT:
 
 - dokončit vizuál mapy
 
+## Playtest shit
+- více času než přijede taxi
+- možná text, ať zkusíme zbalit více ženských?
+
+- zvuk kroků
+- hlavni postava výběr
+
+- text bar minigame překrývá židli
+- slot machine červený oucapek
+
 ## Janek
 - game finish
   - nějaký fade out na konec
