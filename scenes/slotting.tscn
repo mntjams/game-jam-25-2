@@ -41,6 +41,7 @@ offset_right = 142.0
 offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/center_grabber = 10
 theme_override_icons/grabber_disabled = ExtResource("3_87e06")
 theme_override_styles/slider = SubResource("StyleBoxLine_nltpj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nltpj")

@@ -15,7 +15,7 @@ var spin_sfx_player: AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spin_sfx_player = play_audio(spin_sfx_path)
-	slider.value = randf_range(0.1, 0.4)*100
+	slider.value = randf_range(0.3, 0.5)*100
 
 func start():
 	pass

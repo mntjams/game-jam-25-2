@@ -8,7 +8,7 @@ const WOMEN_COSTUMES_DIR := "res://assets/img/npc/woman"
 const GASP_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-gasps.mp3"
 const IN_LOVE_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-laugh.mp3"
 
-const lose_on_spotted_interest : float = -10
+const lose_on_spotted_interest : float = -50
 
 var men_costume_textures: Array[Texture2D] = []
 var women_costume_textures: Array[Texture2D] = []
