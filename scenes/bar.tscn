@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddsx2d2tqkv1g"]
+[gd_scene load_steps=7 format=3 uid="uid://ddsx2d2tqkv1g"]
 
 [ext_resource type="Script" uid="uid://dvym4ff1xdcul" path="res://scripts/bar_minigame.gd" id="1_5dekh"]
 [ext_resource type="Texture2D" uid="uid://d06hqh3ij52tg" path="res://assets/img/zidle.png" id="2_qdsxc"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="3_x848m"]
 [ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="4_qdsxc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdsxc"]
+bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_5dekh"]
 _data = {
@@ -15,6 +18,13 @@ point_count = 3
 script = ExtResource("1_5dekh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 252.0
+offset_top = 936.0
+offset_right = 553.0
+offset_bottom = 1013.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_qdsxc")
 
 [node name="Path2D" type="Path2D" parent="CanvasLayer"]
 position = Vector2(812, 911)

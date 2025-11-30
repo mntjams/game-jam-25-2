@@ -2,6 +2,7 @@ extends Node2D
 @onready var pathf = $CanvasLayer/Path2D/PathFollow2D
 @onready var left = $CanvasLayer/Path2D/left
 @onready var right = $CanvasLayer/Path2D/right
+@onready var tween = get_tree().create_tween()
 
 var vel = 0.002
 var press_vel = vel*30
@@ -23,7 +24,10 @@ func _ready() -> void:
 	var margin = (1-sweet_spot)/2
 	left.progress_ratio = margin
 	right.progress_ratio = 1-margin
+	var time = randfn(4,5)
+	win_timer.wait_time = time
 	win_timer.start()
+	tween.tween_property($CanvasLayer/ProgressBar, "value", 100, time)
 
 func start():
 	pass
@@ -48,7 +52,8 @@ func _physics_process(_delta: float) -> void:
 		
 
 func losing():
-	var tween = get_tree().create_tween()
+	tween.stop()
+	tween = get_tree().create_tween()
 	if pathf.progress_ratio < left.progress_ratio:
 		tween.tween_property(pathf, "progress_ratio", 0,1)
 	else: tween.tween_property(pathf, "progress_ratio", 1,1)
