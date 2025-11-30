@@ -12,7 +12,7 @@ IMPORTANT:
 
 - načapávání
 
-- balcony location
+- bar location
   - tiles
   - minigame logic
 
