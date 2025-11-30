@@ -6,10 +6,6 @@ func _ready() -> void:
 	$TextureRect/SFXSlider.value = AudioServer.get_bus_volume_linear(0)*normalization
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
