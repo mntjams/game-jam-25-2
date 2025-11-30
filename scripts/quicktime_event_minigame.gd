@@ -8,6 +8,13 @@ extends Control
 #@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
+const SFX_FILES = [
+	"res://assets/sounds/sfx/quicktime-event-minigame/awyeah-woman.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/letsgo.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/ohyeah-man.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/ohyeah-woman.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/whoo.mp3"
+]
 var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
 
 var current_key: Key
@@ -28,7 +35,7 @@ var interest_gained : float = 10
 signal finished(success: bool)
 
 func start() -> void:
-	sound_effects = load_sounds(sound_path)
+	sound_effects = load_sounds()
 	#print(sound_effects)
 	start_event()
 	
@@ -71,30 +78,12 @@ func get_random_wasd():
 	var key_and_char = key_map[randi() % key_map.size()]
 	return key_and_char
 	
-func load_sounds(path: String) -> Array[AudioStreamMP3]:
+func load_sounds() -> Array[AudioStreamMP3]:
 	var sfxs : Array[AudioStreamMP3] = []
 	
-	var dir := DirAccess.open(path)
-
-	if dir == null:
-		push_error("Cannot open directory: " + path)
-		return sfxs
-
-	dir.list_dir_begin()
-
-	while true:
-		var file := dir.get_next()
-		if file == "":
-			break
-		if dir.current_is_dir():
-			continue
-		
-		if file.ends_with("mp3"):
-			var stream := load(path + file)
-			if stream:
-				sfxs.append(stream)
-
-	dir.list_dir_end()
+	for sfx in SFX_FILES:
+		sfxs.append(load(sfx))
+	
 	return sfxs
 
 func get_random_sound() -> AudioStreamMP3:
