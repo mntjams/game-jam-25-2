@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddsx2d2tqkv1g"]
+[gd_scene load_steps=8 format=3 uid="uid://ddsx2d2tqkv1g"]
 
 [ext_resource type="Script" uid="uid://dvym4ff1xdcul" path="res://scripts/bar_minigame.gd" id="1_5dekh"]
+[ext_resource type="Texture2D" uid="uid://7qvjbgycvh31" path="res://assets/img/progress_bar.png" id="2_efgdo"]
 [ext_resource type="Texture2D" uid="uid://d06hqh3ij52tg" path="res://assets/img/zidle.png" id="2_qdsxc"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="3_x848m"]
 [ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="4_qdsxc"]
@@ -10,7 +11,7 @@ bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_5dekh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -114, 123, -150.4319, 0.3415422, 150.4319, -0.3415422, 93, -29, 0, 0, 0, 0, 294, 114)
+"points": PackedVector2Array(0, 0, 0, 0, -125, 134, -150.4319, 0.3415422, 150.4319, -0.3415422, 86, -4, 0, 0, 0, 0, 295, 131)
 }
 point_count = 3
 
@@ -19,45 +20,53 @@ script = ExtResource("1_5dekh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 637.0
+offset_top = 734.0
+offset_right = 1147.0
+offset_bottom = 1244.0
+texture = ExtResource("2_efgdo")
+
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 offset_left = 252.0
 offset_top = 936.0
 offset_right = 553.0
 offset_bottom = 1013.0
+theme_override_colors/font_color = Color(0.009604614, 0.009604636, 0.00960468, 1)
 theme_override_styles/fill = SubResource("StyleBoxFlat_qdsxc")
 
 [node name="Path2D" type="Path2D" parent="CanvasLayer"]
 position = Vector2(812, 911)
 curve = SubResource("Curve2D_5dekh")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D"]
-position = Vector2(-114, 123)
-rotation = -1.2137831
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Path2D/PathFollow2D"]
-texture = ExtResource("2_qdsxc")
-
 [node name="left" type="PathFollow2D" parent="CanvasLayer/Path2D"]
-position = Vector2(-114, 123)
-rotation = -1.2137831
+position = Vector2(-125, 134)
+rotation = -1.1562994
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Path2D/left"]
 self_modulate = Color(0, 1, 0, 1)
-offset_top = -31.505611
-offset_right = 17.001907
-offset_bottom = 36.035343
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = 40.0
 texture = ExtResource("3_x848m")
 
 [node name="right" type="PathFollow2D" parent="CanvasLayer/Path2D"]
-position = Vector2(-114, 123)
-rotation = -1.2137831
+position = Vector2(-125, 134)
+rotation = -1.1562994
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Path2D/right"]
 self_modulate = Color(0, 1, 0, 1)
-offset_top = -31.505611
-offset_right = 17.001907
-offset_bottom = 36.035343
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = 40.0
 texture = ExtResource("3_x848m")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D"]
+position = Vector2(-125, 134)
+rotation = -1.1562994
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Path2D/PathFollow2D"]
+texture = ExtResource("2_qdsxc")
 
 [node name="Label" parent="CanvasLayer" instance=ExtResource("4_qdsxc")]
 offset_left = 443.0

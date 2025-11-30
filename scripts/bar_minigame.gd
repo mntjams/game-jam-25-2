@@ -20,11 +20,11 @@ var win_reward = 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pathf.progress_ratio = 0.5
-	sweet_spot = randf_range(0.2, 0.5)
+	sweet_spot = randf_range(0.25, 0.4)
 	var margin = (1-sweet_spot)/2
 	left.progress_ratio = margin
 	right.progress_ratio = 1-margin
-	var time = randfn(4,5)
+	var time = randf_range(4,5)
 	win_timer.wait_time = time
 	win_timer.start()
 	tween.tween_property($CanvasLayer/ProgressBar, "value", 100, time)
