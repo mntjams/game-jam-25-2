@@ -4,6 +4,7 @@ extends Node2D
 
 var dir = 1
 var interest_gained : float = 30
+var points_lost = -10
 var finished_mini : bool = false
 var sweet_spot = 0
 
@@ -33,9 +34,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
-			
-		#TODO: fix sweet spot here
-	
 	if not finished_mini:
 		if Input.is_action_just_pressed("slots"):
 			var offset = ((1-sweet_spot)/2)*100
@@ -64,7 +62,7 @@ func lost():
 	poop_pushing_player.stop()
 	play_audio(poop_on_floor_sfx_path).finished.connect(func():
 		play_audio(uhoh_sfx_path).finished.connect(func():
-			emit_signal("finished",false,interest_gained)
+			emit_signal("finished",true,points_lost)
 			queue_free()
 		)
 	)

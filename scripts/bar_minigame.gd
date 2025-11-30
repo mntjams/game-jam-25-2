@@ -16,7 +16,7 @@ var won = false
 signal finished(success: bool, interest_gained : float)
 
 @onready var win_timer = $WinTimer
-var lost_reward = -15
+var lost_reward = -10
 var win_reward = 30
 
 
@@ -63,7 +63,7 @@ func losing():
 	else: tween.tween_property(pathf, "progress_ratio", 1,1)
 	await tween.finished
 	
-	emit_signal("finished",false,lost_reward)
+	emit_signal("finished",true,lost_reward)
 	queue_free()
 
 
