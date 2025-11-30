@@ -5,6 +5,11 @@
 IMPORTANT:
 
 - načapávání
+  - načapávací area
+    - když hráče uvidí osoba A během interakce s osobou B
+    - nasere se -> vyšle signál, že spatřila hráče
+      - otestuje, zda je player interacting (může rovnou zavolat nějakou funkci )
+      - když je hráč interacting a osoba A má nenulový interest, tak jí klesne
 
 - game finish
   - nějaký fade out na konec
