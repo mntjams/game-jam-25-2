@@ -18,7 +18,7 @@ var women_costume_textures: Array[Texture2D] = []
 signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
-@onready var progress_bar : ProgressBar = $Sprite2D/ProgressBar
+@onready var progress_bar : ProgressBar = $ProgressBar
 @onready var spotting_area : Area2D = $SpottingArea
 
 const INTEREST_LIMIT : float = 100.0
