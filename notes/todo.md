@@ -4,6 +4,8 @@
 
 IMPORTANT:
 
+- nejde interact, když dvě ženy naráz
+
 - načapávání
   - progress bar shake či podobné
 
