@@ -18,7 +18,14 @@ successes_needed = 2
 [node name="LabelControl" type="CanvasLayer" parent="."]
 
 [node name="TutorialLabel" parent="LabelControl" instance=ExtResource("2_i4n8f")]
-text = "Press correct key"
+offset_left = 510.0
+offset_top = 741.0
+offset_right = 1435.0
+offset_bottom = 910.0
+text = "Press the correct key in time!
+Dance! Dance! Dance til you die!"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Label" type="Label" parent="LabelControl"]
 visible = false
