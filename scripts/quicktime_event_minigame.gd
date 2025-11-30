@@ -8,7 +8,7 @@ extends Control
 #@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
-const SFX_FILES = [
+const SFX_FILES := [
 	"res://assets/sounds/sfx/quicktime-event-minigame/awyeah-woman.mp3",
 	"res://assets/sounds/sfx/quicktime-event-minigame/letsgo.mp3",
 	"res://assets/sounds/sfx/quicktime-event-minigame/ohyeah-man.mp3",
