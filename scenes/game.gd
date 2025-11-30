@@ -7,6 +7,9 @@ var taxi_arriving : bool = false
 @onready var taxi_timer = $TaxiStuff/TaxiTimer
 @onready var time_left_label = $CanvasLayer/TimeLeftLabel
 
+const car_riding_sfx_path: String = "res://assets/sounds/sfx/finish/car-riding.mp3"
+const car_honk_sfx_path: String = "res://assets/sounds/sfx/finish/car-honk.mp3"
+
 func _ready():
 	_connect_existing_npcs()
 	time_left_label.visible = false
@@ -54,6 +57,9 @@ func _on_taxi_timer_timeout():
 	progress_taxi()
 	
 func progress_taxi():
+	#play sound
+	var riding_player := play_audio(car_riding_sfx_path)
+	
 	# first tween
 	time_left_label.text = "Taxi arriving"
 	var tween = create_tween()
@@ -63,11 +69,16 @@ func progress_taxi():
 	tween.tween_property(taxi_path_follow, "progress_ratio", target_offset, duration)
 	await tween.finished
 	
+	riding_player.stop()
+	play_audio(car_honk_sfx_path)
+	
 	# wait some time
 	time_left_label.text = "Gathering hoes"
 	var taxi_wait_time = 2
 	await get_tree().create_timer(taxi_wait_time).timeout
 	
+	play_audio(car_riding_sfx_path)
+
 	# second tween
 	time_left_label.text = "Taxi left"
 	var tween2 := create_tween()
@@ -78,3 +89,16 @@ func progress_taxi():
 	# remove taxi
 	taxi_path_follow.visible = false
 	# TODO: IMPLEMENT GAME FINISH HERE!!!
+
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player

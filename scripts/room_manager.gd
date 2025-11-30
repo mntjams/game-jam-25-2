@@ -5,7 +5,7 @@ var rooms: Array[Room] = []
 var final_room : Room = null
 
 @export var minigame_scene_debug: PackedScene = preload("res://scenes/test_minigame.tscn")
-var debug : bool = false
+var debug : bool = true
 
 func _ready() -> void:
 	randomize() # for rand num generator
