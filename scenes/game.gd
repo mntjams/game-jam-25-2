@@ -78,7 +78,7 @@ func progress_taxi():
 	var taxi_wait_time = 2
 	await get_tree().create_timer(taxi_wait_time).timeout
 	
-	play_audio(car_riding_sfx_path)
+	riding_player = play_audio(car_riding_sfx_path)
 
 	# second tween
 	time_left_label.text = "Taxi left"
@@ -91,6 +91,7 @@ func progress_taxi():
 	taxi_path_follow.visible = false
 	# TODO: IMPLEMENT GAME FINISH HERE!!!
 	fade_out()
+	riding_player.stop()
 	
 func play_audio(path_to_stream: String) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()
