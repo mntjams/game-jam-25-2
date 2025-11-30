@@ -78,3 +78,4 @@ slots={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0.4819994, 0.8006872, 1)

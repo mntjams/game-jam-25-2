@@ -92,6 +92,9 @@ func progress_taxi():
 	# TODO: IMPLEMENT GAME FINISH HERE!!!
 	fade_out()
 	riding_player.stop()
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://scenes/zero.tscn")
+	
 	
 func play_audio(path_to_stream: String) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()

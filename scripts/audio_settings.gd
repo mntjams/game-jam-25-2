@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("settings"):
+	if event.is_action_pressed("settings") and get_tree().current_scene.name != "MainMenu":
 		$HUD.visible = !$HUD.visible
 		get_tree().paused = !get_tree().paused
 
