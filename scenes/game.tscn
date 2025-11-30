@@ -1,6 +1,6 @@
-[gd_scene load_steps=44 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=45 format=4 uid="uid://cdtnc2ucqxpfl"]
 
-[ext_resource type="Script" uid="uid://bisddq7kjbmly" path="res://scenes/game.gd" id="1_1kice"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_1kice"]
 [ext_resource type="Texture2D" uid="uid://ci80yuy4650eo" path="res://assets/img/tiles/tileset4.png" id="1_ca42v"]
 [ext_resource type="Texture2D" uid="uid://h4evjbxm6uvl" path="res://assets/img/tiles/tileset2.png" id="1_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dvoeqqmnfxh6r" path="res://assets/img/tiles/tileset3.png" id="2_kvuet"]
@@ -13,13 +13,14 @@
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/ambiences/city-ambience.mp3" id="8_vtaks"]
 [ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://ddsx2d2tqkv1g" path="res://scenes/bar.tscn" id="9_5newe"]
+[ext_resource type="PackedScene" path="res://scenes/bar.tscn" id="9_5newe"]
 [ext_resource type="PackedScene" uid="uid://evbakb8g615y" path="res://scenes/quicktime_event_minigame.tscn" id="9_ir15t"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/ambiences/slots.mp3" id="11_trtic"]
 [ext_resource type="PackedScene" uid="uid://dj5xdhggwrgbl" path="res://scenes/cigar.tscn" id="13_ca42v"]
 [ext_resource type="PackedScene" uid="uid://mh6y622rj5a2" path="res://scenes/slotting.tscn" id="15_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://byvhqna41uhww" path="res://scenes/piss.tscn" id="17_264po"]
+[ext_resource type="AudioStream" uid="uid://b66tvyj1f4rll" path="res://assets/sounds/music/elevator-music.mp3" id="19_37s47"]
 [ext_resource type="Texture2D" uid="uid://bue1twkpf3wpc" path="res://assets/img/taxi.png" id="21_5newe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bt5mj"]
@@ -226,7 +227,6 @@ current = true
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("5_0tnpc")
-debug = null
 
 [node name="Bar" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(1918.0532, -218.6897)
@@ -331,7 +331,7 @@ script = ExtResource("7_0tnpc")
 stream = ExtResource("8_vtaks")
 autoplay = true
 max_distance = 450.0
-attenuation = 19.027283
+attenuation = 2.1435435
 
 [node name="Machines" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(532.58203, 2037.4222)
@@ -361,6 +361,7 @@ script = ExtResource("7_0tnpc")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Machines"]
 position = Vector2(0.020629883, -109.03601)
 stream = ExtResource("11_trtic")
+volume_db = 2.0
 autoplay = true
 max_distance = 626.0
 attenuation = 0.45062456
@@ -391,9 +392,10 @@ position = Vector2(-177.65833, 302.01917)
 script = ExtResource("7_0tnpc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Toilet"]
+position = Vector2(198.32977, 77.122375)
+stream = ExtResource("19_37s47")
 autoplay = true
-max_distance = 450.0
-attenuation = 19.027283
+max_distance = 550.0
 
 [node name="NPCs" type="Node2D" parent="."]
 
