@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://mh6y622rj5a2"]
+[gd_scene load_steps=5 format=3 uid="uid://mh6y622rj5a2"]
 
-[ext_resource type="Script" uid="uid://ctdej5y0fjuvv" path="res://scripts/slotting.gd" id="1_87e06"]
 [ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="1_gt2fk"]
 [ext_resource type="Script" uid="uid://bng54ob57qa52" path="res://scripts/slot_minigame.gd" id="1_nltpj"]
 
@@ -12,7 +11,7 @@ thickness = 10
 bg_color = Color(0.4770695, 0.6747423, 3.85046e-07, 1)
 
 [node name="Slotting" type="Node2D"]
-script = ExtResource("1_87e06")
+script = ExtResource("1_nltpj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -35,6 +34,3 @@ step = 0.1
 value = 80.0
 editable = false
 scrollable = false
-script = ExtResource("1_nltpj")
-
-[connection signal="finished_slotting" from="CanvasLayer/slot" to="." method="_on_slot_finished_slotting"]

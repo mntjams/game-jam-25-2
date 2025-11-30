@@ -1,10 +1,11 @@
-extends HSlider
+extends Node2D
 
-signal finished_slotting(success: bool, interest_gained : float)
+signal finished(success: bool, interest_gained : float)
 
 var interest_gained : float = 10
 var shift : float = 10
 var down_speed : float = 1
+@onready var slider = $CanvasLayer/slot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,12 +18,13 @@ func start():
 func _physics_process(delta: float) -> void:
 	var tween = get_tree().create_tween()
 	if Input.is_action_just_pressed("slots"):
-		tween.tween_property(self,"value", value+shift,delta)
-		if value+shift >= 99: won()
-	else: tween.tween_property(self,"value", value-down_speed,delta)
+		tween.tween_property(slider,"value", slider.value+shift,delta)
+		if slider.value+shift >= 99: won()
+	else: tween.tween_property(slider,"value", slider.value-down_speed,delta)
 
 func won():
 	print("won")
-	emit_signal("finished_slotting", true, interest_gained)
+	emit_signal("finished", true, interest_gained)
+	queue_free()
 	
 	

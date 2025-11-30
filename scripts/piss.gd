@@ -16,7 +16,7 @@ func start():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sweet_spot = randf_range(0.1, 0.5)
+	sweet_spot = randf_range(0.2, 0.5)
 	var margin = (1-sweet_spot) * slider.size.x
 	text_rect.size.x -= margin
 	text_rect.position.x += margin/2
@@ -24,8 +24,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("slots"):
-		var margin = (1-sweet_spot)/2
-		if slider.value >= margin and slider.value <= 1-margin:
+		var margin = ((1-sweet_spot)/2)*100
+		print(slider.value)
+		print(margin)
+		if slider.value >= margin and slider.value <= 100-margin:
 			won()
 		else: lost()
 			

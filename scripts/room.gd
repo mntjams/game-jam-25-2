@@ -16,6 +16,7 @@ func start_minigame_for(woman: InteractableWoman, player: Player) -> void:
 
 func _on_minigame_finished(success: bool, interest_gained: float, woman: InteractableWoman, player: Player) -> void:
 	player.finish_interaction()
+	if success: player.do_particles()
 	woman.finish_interaction(success, interest_gained)
 
 # --- free slots handling ---

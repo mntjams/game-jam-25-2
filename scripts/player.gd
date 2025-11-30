@@ -27,6 +27,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func finish_interaction():
 	is_interacting = false
+	
+func do_particles():
+	$CPUParticles2D.emitting = true
 
 func start_interaction():
 		var woman : InteractableWoman = women_in_sight[0]
