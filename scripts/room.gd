@@ -9,6 +9,10 @@ class_name Room
 # --- minigame handling ---
 
 func start_minigame_for(woman: InteractableWoman, player: Player) -> void:
+	if is_final_room:
+		# TODO: implement some interaction with woman in front of taxi
+		print("I am waiting for taxi honey")
+		return
 	var mg := minigame_scene.instantiate()
 	mg.finished.connect(_on_minigame_finished.bind(woman, player))
 	get_tree().current_scene.add_child(mg)

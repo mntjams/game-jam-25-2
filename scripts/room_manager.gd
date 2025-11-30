@@ -4,12 +4,19 @@ class_name RoomManager
 var rooms: Array[Room] = []
 var final_room : Room = null
 
+@export var minigame_scene_debug: PackedScene = preload("res://scenes/test_minigame.tscn")
+var debug : bool = false
+
 func _ready() -> void:
 	randomize() # for rand num generator
 	_collect_rooms()
 	_connect_existing_npcs()
+	if debug:
+		switch_to_debug_minigames()
 
-
+func switch_to_debug_minigames():
+	for room in rooms:
+		room.minigame_scene = minigame_scene_debug
 # --- Room collection ---------------------------------------------------------
 
 # initialize the rooms array

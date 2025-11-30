@@ -14,10 +14,46 @@ signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
 @onready var progress_bar : ProgressBar = $Sprite2D/ProgressBar
+@onready var spotting_area : Area2D = $SpottingArea
 
 const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
 var interest : float = 0
+
+# --- Player spotting logic
+
+func is_player_visible() -> bool:
+	for b in $SpottingArea.get_overlapping_bodies():
+		if b is Player:
+			return true
+	return false
+
+func _on_spotting_area_body_entered(body):
+	if interest > 0 and body is Player:
+		if body.is_interacting:
+			handle_spotted_event()
+
+# check if started 
+func _on_player_started_interacting(woman : InteractableWoman):
+	if woman != self and is_player_visible() and interest > 0:
+		handle_spotted_event()
+
+func handle_spotted_event():
+	# TODO: handle spotted event
+	print("what are you doing with this girl")
+	pass
+
+func _subscribe_to_player_interaction_signal() -> void:
+	var player := get_tree().get_first_node_in_group("Player")
+	
+	if not player.started_interacting_with.is_connected(_on_player_started_interacting):
+		player.started_interacting_with.connect(_on_player_started_interacting)
+
+func update_spotting_area_visibility():
+	if interest > 0:
+		spotting_area.visible = true
+	else:
+		spotting_area.visible = false
 
 # --- Interest bar logic
 
@@ -69,6 +105,7 @@ func gain_interest(interest_gained : float):
 	#print(self," You cool dude, I am really interested")
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
+	update_spotting_area_visibility()
 	if interest >= INTEREST_LIMIT:
 		$Sprite2D/CPUParticles2D.emitting = true
 		fall_in_love()
@@ -92,7 +129,9 @@ func _ready() -> void:
 	$Sprite2D/CPUParticles2D.emitting = false
 	men_costume_textures = _load_costumes(MEN_COSTUMES_DIR)
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
+	_subscribe_to_player_interaction_signal()
 	_apply_random_costume()
+	update_spotting_area_visibility()
 	_init_interest_bar()
 
 func on_done_in_room() -> void:
