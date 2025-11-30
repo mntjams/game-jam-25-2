@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/ambiences/city-ambience.mp3" id="8_vtaks"]
 [ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
-[ext_resource type="PackedScene" path="res://scenes/bar.tscn" id="9_5newe"]
+[ext_resource type="PackedScene" uid="uid://ddsx2d2tqkv1g" path="res://scenes/bar.tscn" id="9_5newe"]
 [ext_resource type="PackedScene" uid="uid://evbakb8g615y" path="res://scenes/quicktime_event_minigame.tscn" id="9_ir15t"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/ambiences/slots.mp3" id="11_trtic"]
@@ -226,6 +226,7 @@ current = true
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("5_0tnpc")
+debug = null
 
 [node name="Bar" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(1918.0532, -218.6897)
