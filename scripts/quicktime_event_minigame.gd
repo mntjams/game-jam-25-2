@@ -4,9 +4,17 @@ extends Control
 @onready var time_to_hit_event: Timer = $TimeToHitEvent
 @onready var time_between_events: Timer = $TimeBetweenEvents
 @onready var label: Label = $LabelControl/Label
+@onready var tutorial_label: Label = $LabelControl/TutorialLabel
 #@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
+const SFX_FILES = [
+	"res://assets/sounds/sfx/quicktime-event-minigame/awyeah-woman.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/letsgo.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/ohyeah-man.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/ohyeah-woman.mp3",
+	"res://assets/sounds/sfx/quicktime-event-minigame/whoo.mp3"
+]
 var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
 
 var current_key: Key
@@ -27,22 +35,24 @@ var interest_gained : float = 10
 signal finished(success: bool)
 
 func start() -> void:
-	sound_effects = load_sounds(sound_path)
+	sound_effects = load_sounds()
 	#print(sound_effects)
 	start_event()
 	
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(current_key) and not key_already_pressed:
 		key_already_pressed = true
-		play_random_sound()
 		successes_needed -= 1
 		#print("Correct key was pressed! Need this many succ: " + str(successes_needed))
 		time_to_hit_event.stop()
 		if successes_needed == 0:
 			emit_signal("finished", true, interest_gained)
 			#print("quicktime event finished")
-			queue_free()
+			play_random_sound(true)
 			return
+		else:
+			play_random_sound(false)
+
 		_on_time_to_hit_event_timeout()
 
 func start_event() -> void:
@@ -68,48 +78,36 @@ func get_random_wasd():
 	var key_and_char = key_map[randi() % key_map.size()]
 	return key_and_char
 	
-func load_sounds(path: String) -> Array[AudioStreamMP3]:
+func load_sounds() -> Array[AudioStreamMP3]:
 	var sfxs : Array[AudioStreamMP3] = []
 	
-	var dir := DirAccess.open(path)
-
-	if dir == null:
-		push_error("Cannot open directory: " + path)
-		return sfxs
-
-	dir.list_dir_begin()
-
-	while true:
-		var file := dir.get_next()
-		if file == "":
-			break
-		if dir.current_is_dir():
-			continue
-		
-		if file.ends_with("mp3"):
-			var stream := load(path + file)
-			if stream:
-				sfxs.append(stream)
-
-	dir.list_dir_end()
+	for sfx in SFX_FILES:
+		sfxs.append(load(sfx))
+	
 	return sfxs
 
 func get_random_sound() -> AudioStreamMP3:
 	return sound_effects[randi() % sound_effects.size()]
 
-func play_random_sound() -> void:
+func play_random_sound(should_free: bool) -> void:
+	# print("Playing sound, should it be free?", should_free)
 	var player := AudioStreamPlayer.new()
 	add_child(player)
 
 	player.stream = get_random_sound()
-	player.play()
-
 	player.finished.connect(func():
 		player.queue_free()
 	)
 	
+	if should_free:
+		tutorial_label.visible = false
+		label.visible = false
+		player.finished.connect(func(): queue_free())
+		
+	player.play()
+	
 func _on_time_to_hit_event_timeout() -> void:
-	#print("Time to hit event timeout!")
+	print("Time to hit event timeout!")
 	
 	#var tween = get_tree().create_tween()
 	#tween.stop()

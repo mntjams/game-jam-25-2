@@ -4,6 +4,7 @@ class_name Npc
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 signal ready_for_room(npc: Npc, from_room: Room) # signal the room manager to give us a room
+signal fallen_in_love
 
 var current_room: Room = null
 var current_slot: Slot = null
@@ -46,7 +47,7 @@ func go_to_slot(room: Room, slot: Slot) -> void:
 # set the destination of my navigation agent
 func _navigate_to(destination: Vector2) -> void:
 	navigation_agent_2d.target_position = destination
-	print("setting target position to ", destination)
+	# print("setting target position to ", destination)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -56,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 
 	# If path is finished, we are at (or very near) the slot
 	if navigation_agent_2d.is_navigation_finished() and not working:
-		print("navigation finished")
+		# print("navigation finished")
 		_stop_stuck_timer()
 		_on_reached_slot()
 		return
@@ -77,7 +78,7 @@ func _ready() -> void:
 
 # what the npc should do when on the slot
 func _on_reached_slot() -> void:
-	print("I have reached a slot")
+	# print("I have reached a slot")
 	emit_signal("started_working",self)
 	velocity = Vector2.ZERO
 	working = true
@@ -87,7 +88,7 @@ func _on_reached_slot() -> void:
 	#print(self,"started working for ",work_time," seconds")
 	await get_tree().create_timer(work_time).timeout
 	if is_interacting():
-		print(self," I cant leave I am interacting")
+		# print(self," I cant leave I am interacting")
 		return
 	working = false
 	#print(self,"stopped working")
@@ -155,8 +156,16 @@ func _set_going_to_finish(val : bool):
 
 func set_my_final_room(room : Room) -> void:
 	final_room = room
-	print(self, "my final room is ", room)
-	
+	#print(self, "my final room is ", room)
+
+
+func start_taxi_arrival_timer():
+	pass
+	#TODO: finish
+
+func emit_fallen_in_love():
+	emit_signal("fallen_in_love")
+
 func go_to_final_room():
 	_set_going_to_finish(true)
 	current_room = final_room
@@ -166,5 +175,5 @@ func go_to_final_room():
 	#print("Going to slot:",slot)
 	_navigate_to(current_slot.global_position)
 	_stop_stuck_timer()
-	print(self,"I am going to final room")
+	#print(self,"I am going to final room")
 	#_restart_stuck_timer()

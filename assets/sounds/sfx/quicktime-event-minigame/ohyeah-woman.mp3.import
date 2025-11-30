@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/ohyeah-woman.mp3-d531b9b43c3f0ae8488f95bc8cf5
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

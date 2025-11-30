@@ -4,19 +4,16 @@
 
 IMPORTANT:
 
-- game finish
-  - když nějaké borce stoupne interest až na 100, tak půjde k finish pointu
-  - přidat lokaci finish point
-    - drží si sloty, borky tam chodí po řadě do fronty
-  - po vypršení timeoutu odjede taxi i s borkou a nastane konec hry
-
 - načapávání
 
-- balcony location
+- game finish
+  - nějaký fade out na konec
+
+- bar location
   - tiles
   - minigame logic
 
-- popis, co se má dělat u miniher
+- popis, co se má dělat u miniher ! 
 - upravit vizuál u miniher
 
 - zvuk při success (kromě pártiklů)
@@ -25,6 +22,8 @@ IMPORTANT:
 ## Janek
 - game finish
   - timer, že typka už je ready to go
+  - zobrazí se label, že typka jde na taxi (případně, kolik typek už čeká)
+  - když timer doběhne, pojede auto a postupně nabere typky (může i spočítat, kolik jich tam stojí)
 
 ## Vláďa
 - bar minigame

@@ -77,5 +77,5 @@ func _on_npc_ready_for_room(npc: Npc, exclude : Room) -> void:
 		return  # safety check; should not happen if get_random_room_with_vacancy is correct
 
 	if room.occupy_slot(slot):
-		print("sending this fella there")
+		# print("sending this fella there")
 		npc.go_to_slot(room, slot)
