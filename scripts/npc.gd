@@ -168,6 +168,7 @@ func emit_fallen_in_love():
 
 func go_to_final_room():
 	_set_going_to_finish(true)
+	$InteractArea/CollisionShape2D.disabled = true
 	current_room = final_room
 	current_slot = final_room.get_first_free_slot()
 	#print("--- NPC:",self,"---")
