@@ -96,9 +96,9 @@ func progress_taxi():
 	if num_in_love == 0:
 		get_tree().change_scene_to_file("res://scenes/zero.tscn")
 	elif num_in_love == 1:
-		get_tree().change_scene_to_file("res://scenes/zero.tscn")
+		get_tree().change_scene_to_file("res://scenes/one.tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/zero.tscn")
+		get_tree().change_scene_to_file("res://scenes/multi.tscn")
 		
 	
 	
