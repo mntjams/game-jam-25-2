@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="2_3jfbr"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3jfbr"]
-color = Color(0.99881023, 0.7202589, 0.61991256, 1)
+color = Color(0.922789, 3.2488256e-06, 1.732707e-06, 1)
 thickness = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8csm"]
@@ -35,7 +35,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u8csm")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
 
 [node name="swee_spot" type="TextureRect" parent="CanvasLayer/slider"]
-self_modulate = Color(1, 1, 0.27058825, 0.4862745)
+self_modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 35.0

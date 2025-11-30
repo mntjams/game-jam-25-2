@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 		var tween = get_tree().create_tween()
 		var val = slider.value
 		var vel = 2+16/(abs(50-val)+1)
-		print(vel)
 		if val == slider.max_value or val == slider.min_value: dir*=-1
 		tween.tween_property(slider,"value", val+dir*vel,delta)
 		
