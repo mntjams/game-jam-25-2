@@ -71,7 +71,7 @@ func get_random_room_with_vacancy_excluding(excluded : Room) -> Room:
 
 func _on_npc_ready_for_room(npc: Npc, exclude : Room) -> void:
 	
-	if npc.in_love: # don't reschedule guys which are in love
+	if npc.in_love or npc.angry: # don't reschedule guys which are in love
 		return
 	
 	#print("received signal from ", npc)
