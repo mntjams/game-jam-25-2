@@ -24,7 +24,6 @@ offset_top = -80.0
 offset_right = 60.0
 offset_bottom = -50.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
-value = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
