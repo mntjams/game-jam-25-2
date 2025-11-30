@@ -8,9 +8,6 @@ IMPORTANT:
 
 - nejde interact, když dvě ženy naráz
 
-- načapávání
-  - progress bar shake či podobné
-
 - game finish
   - po fade outu nějaké vyhodnocení toho, jak si hráč vedl
 
@@ -39,6 +36,7 @@ BONUS:
 - animovaná dance podlaha
 - nebalitelní kompars
 - ztrácení interestu overtime
+- auta projíždějící jen tak okolo
 
 ## Draw
 - srdíčka
