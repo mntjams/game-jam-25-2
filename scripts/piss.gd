@@ -32,15 +32,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("slots"):
-		var offset = ((1-sweet_spot)/2)*100
-		if slider.value >= offset and slider.value <= 100-offset:
-			won()
-		else: lost()
+	
 			
 		#TODO: fix sweet spot here
 	
 	if not finished_mini:
+		if Input.is_action_just_pressed("slots"):
+			var offset = ((1-sweet_spot)/2)*100
+			if slider.value >= offset and slider.value <= 100-offset:
+				won()
+			else: lost()
+			finished_mini = true
 		var tween = get_tree().create_tween()
 		var val = slider.value
 		var vel = 2
