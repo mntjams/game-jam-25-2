@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	var right_part = left_part+filter.size.x
 	if left_part < good.position.x:
 		print("Die")
+		_lost()
 	elif right_part > good.position.x+good.size.x:
 		print("Not smoking")
 		tween.pause()
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		tween.play()
 	
 	var vec = filter.position
-	if Input.is_action_pressed("slots"): vec.x-=vel
+	if Input.is_action_just_pressed("slots"): vec.x-=vel
 	else:
 		vec.x+=vel/2.0
 		if right_part >= full.size.x:
@@ -56,5 +57,11 @@ func _won():
 	finished_game = true
 	print("Won")
 	emit_signal("finished", true, interest_gained)
+	queue_free()
+	
+func _lost():
+	finished_game = true
+	print("Lost")
+	emit_signal("finished", false, interest_gained)
 	queue_free()
 	
