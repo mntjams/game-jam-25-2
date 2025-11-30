@@ -17,7 +17,7 @@ successes_needed = 7
 [node name="LabelControl" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="LabelControl"]
-self_modulate = Color(1, 1, 1, 0)
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

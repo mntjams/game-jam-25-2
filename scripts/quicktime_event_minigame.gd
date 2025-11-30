@@ -4,7 +4,7 @@ extends Control
 @onready var time_to_hit_event: Timer = $TimeToHitEvent
 @onready var time_between_events: Timer = $TimeBetweenEvents
 @onready var label: Label = $LabelControl/Label
-@onready var tween = get_tree().create_tween()
+#@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
 var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
