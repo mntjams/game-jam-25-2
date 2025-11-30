@@ -33,6 +33,9 @@ bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
 
 [node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
 script = ExtResource("1_lbwyf")
+zero_scene = null
+movement_speed = null
+stuck_timeout = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lbwyf")
