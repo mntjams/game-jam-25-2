@@ -114,7 +114,7 @@ func fade_in(duration: float = 1.0) -> void:
 	
 
 func fade_out(duration: float = 1.0) -> void:
-	print("fading")
+	#print("fading")
 	var tween := create_tween()
 	tween.tween_property(fade_rect, "color:a", 1.0, duration)
 	await tween.finished
