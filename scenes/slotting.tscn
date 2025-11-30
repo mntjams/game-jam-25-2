@@ -6,6 +6,8 @@
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_nltpj"]
 color = Color(1, 0, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
 thickness = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nltpj"]
