@@ -16,15 +16,19 @@ IMPORTANT:
   - tiles
   - minigame logic
 
-- player controls
+- popis, co se má dělat u miniher
+- upravit vizuál u miniher
+
+- zvuk při success (kromě pártiklů)
+- srdíčka particles when interest 100
 
 ## Janek
-- bar for interest of women
-- hide press e to interact when starting interaction
+- game finish
+  - timer, že typka už je ready to go
 
 ## Vláďa
-- piss
-- sloty
+- bar minigame
+- timeouty u her
 
 ## Matouš
 - sfx na piss a sloty
