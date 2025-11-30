@@ -9,7 +9,7 @@ script = ExtResource("1_ktb7u")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="full" type="TextureRect" parent="CanvasLayer"]
-self_modulate = Color(0.13725491, 1, 1, 0.59607846)
+self_modulate = Color(0.9372549, 0, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -24,7 +24,7 @@ grow_vertical = 2
 texture = ExtResource("1_tbj3s")
 
 [node name="good" type="TextureRect" parent="CanvasLayer/full"]
-self_modulate = Color(1, 0.15294118, 1, 0.6)
+self_modulate = Color(0, 0.5764706, 0.07450981, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -15.0
+offset_top = -12.5
 offset_right = -200.0
-offset_bottom = 15.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_tbj3s")
@@ -63,9 +63,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 50.0
-offset_top = -15.0
+offset_top = -12.5
 offset_right = 350.0
-offset_bottom = 15.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_tbj3s")
@@ -81,4 +81,5 @@ spread = 110.0
 gravity = Vector2(0, -200)
 initial_velocity_max = 2.3
 angle_max = 180.0
+scale_amount_max = 2.0
 color = Color(0.73300546, 0.7330054, 0.7330054, 1)

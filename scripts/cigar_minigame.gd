@@ -42,14 +42,14 @@ func _physics_process(delta: float) -> void:
 	elif not tween.is_running() and not finished_game:
 		tween.play()
 	
-	var vec = filter.position
-	if Input.is_action_just_pressed("slots"): vec.x-=vel
+	var pos = filter.position
+	if Input.is_action_just_pressed("slots"): pos.x-=vel
 	else:
-		vec.x+=vel/15.0
+		pos.x+=vel/15.0
 		if right_part >= full.size.x:
 				return
 	var move_tween = get_tree().create_tween()
-	move_tween.tween_property(filter,"position", vec,delta)
+	move_tween.tween_property(filter,"position", pos, delta)
 	particles.position.x = not_filter.size.x
 
 func _won():
