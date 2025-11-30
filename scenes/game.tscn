@@ -484,7 +484,7 @@ color = Color(0, 0, 0, 0)
 [node name="TaxiStuff" type="Node2D" parent="."]
 
 [node name="TaxiTimer" type="Timer" parent="TaxiStuff"]
-wait_time = 3.0
+wait_time = 60.0
 
 [node name="TaxiPath2D" type="Path2D" parent="TaxiStuff"]
 position = Vector2(40, 0)
