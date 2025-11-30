@@ -6,6 +6,7 @@ var taxi_arriving : bool = false
 @onready var taxi_path_follow = $TaxiStuff/TaxiPath2D/TaxiPathFollow2D
 @onready var taxi_timer = $TaxiStuff/TaxiTimer
 @onready var time_left_label = $CanvasLayer/TimeLeftLabel
+@onready var fade_rect = $CanvasLayer/FadeRect
 
 const car_riding_sfx_path: String = "res://assets/sounds/sfx/finish/car-riding.mp3"
 const car_honk_sfx_path: String = "res://assets/sounds/sfx/finish/car-honk.mp3"
@@ -89,7 +90,8 @@ func progress_taxi():
 	# remove taxi
 	taxi_path_follow.visible = false
 	# TODO: IMPLEMENT GAME FINISH HERE!!!
-
+	fade_out()
+	
 func play_audio(path_to_stream: String) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()
 	add_child(player)
@@ -102,3 +104,17 @@ func play_audio(path_to_stream: String) -> AudioStreamPlayer:
 	player.play()
 	
 	return player
+
+# --- FADING LOGIC ---
+
+func fade_in(duration: float = 1.0) -> void:
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "color:a", 0.0, duration)
+	await tween.finished
+	
+
+func fade_out(duration: float = 1.0) -> void:
+	print("fading")
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "color:a", 1.0, duration)
+	await tween.finished
