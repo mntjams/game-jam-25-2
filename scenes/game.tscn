@@ -360,12 +360,12 @@ position = Vector2(440.34546, -134.55005)
 script = ExtResource("7_0tnpc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Machines"]
-position = Vector2(0.020629883, -109.03601)
+position = Vector2(1.4179688, 161.57776)
 stream = ExtResource("11_trtic")
 volume_db = 2.0
 autoplay = true
-max_distance = 626.0
-attenuation = 0.45062456
+max_distance = 1300.0
+attenuation = 1.1095678
 
 [node name="Toilet" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(-189.32977, 225.87762)
@@ -393,10 +393,11 @@ position = Vector2(-177.65833, 302.01917)
 script = ExtResource("7_0tnpc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomManager/Toilet"]
-position = Vector2(198.32977, 77.122375)
+position = Vector2(-302.67023, -294.87762)
 stream = ExtResource("19_37s47")
 autoplay = true
-max_distance = 550.0
+max_distance = 1600.0
+attenuation = 1.7411011
 
 [node name="NPCs" type="Node2D" parent="."]
 
