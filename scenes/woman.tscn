@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://qoe1t1c24c7u"]
+[gd_scene load_steps=9 format=3 uid="uid://qoe1t1c24c7u"]
 
 [ext_resource type="Script" uid="uid://caxcmxtqm03ho" path="res://scripts/woman.gd" id="1_lbwyf"]
 [ext_resource type="Texture2D" uid="uid://w4w6bpl26l4a" path="res://assets/img/npc/woman/woman_blonde_blue.png" id="2_lbwyf"]
+[ext_resource type="Texture2D" uid="uid://dbekb4ijq5qy4" path="res://assets/img/heart2.png" id="3_kset0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbwyf"]
 bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
+
+[sub_resource type="Gradient" id="Gradient_311h6"]
+offsets = PackedFloat32Array(0, 0.29891303, 0.9945652)
+colors = PackedColorArray(0.78039217, 0.15294118, 0.49803922, 1, 0.78039217, 0.15294118, 0.49803922, 1, 0.78039217, 0.15686275, 0.49803922, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbwyf"]
 radius = 54.0
@@ -28,6 +33,21 @@ offset_right = 60.0
 offset_bottom = -50.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+position = Vector2(0, 17)
+amount = 3
+texture = ExtResource("3_kset0")
+lifetime = 0.75
+emission_shape = 1
+emission_sphere_radius = 60.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, -200)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_311h6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_lbwyf")
@@ -45,6 +65,7 @@ debug_path_custom_line_width = 17.3
 [node name="StuckTimer" type="Timer" parent="."]
 
 [node name="SpottingArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpottingArea"]
 shape = SubResource("CircleShape2D_311h6")
@@ -52,6 +73,7 @@ shape = SubResource("CircleShape2D_311h6")
 [node name="InteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+visible = false
 shape = SubResource("CircleShape2D_kset0")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_area_2d_body_entered"]
