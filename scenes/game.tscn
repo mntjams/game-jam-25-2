@@ -499,6 +499,9 @@ rotation = -1.5707964
 scale = Vector2(1.63, 1.63)
 texture = ExtResource("21_5newe")
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(3362.7852, -61.39563)
+
 [connection signal="no_woman_in_sight" from="Player" to="CanvasLayer/InteractLabel" method="_on_player_no_woman_in_sight"]
 [connection signal="woman_entered_sight" from="Player" to="CanvasLayer/InteractLabel" method="_on_player_woman_entered_sight"]
 [connection signal="timeout" from="TaxiStuff/TaxiTimer" to="." method="_on_taxi_timer_timeout"]
