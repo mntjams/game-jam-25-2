@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcg75o4frx58c"]
+
+[ext_resource type="Script" uid="uid://dvym4ff1xdcul" path="res://scripts/bar_minigame.gd" id="1_5dekh"]
+[ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="2_bwlfd"]
+[ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="3_x848m"]
+[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="4_qdsxc"]
+
+[sub_resource type="Curve2D" id="Curve2D_5dekh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -114, 123, -150.4319, 0.3415422, 150.4319, -0.3415422, 93, -29, 0, 0, 0, 0, 294, 114)
+}
+point_count = 3
+
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_5dekh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Path2D" type="Path2D" parent="CanvasLayer"]
+position = Vector2(812, 911)
+curve = SubResource("Curve2D_5dekh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D"]
+position = Vector2(-114, 123)
+rotation = -1.2137831
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Path2D/PathFollow2D"]
+texture = ExtResource("2_bwlfd")
+
+[node name="left" type="PathFollow2D" parent="CanvasLayer/Path2D"]
+position = Vector2(-114, 123)
+rotation = -1.2137831
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Path2D/left"]
+self_modulate = Color(0, 1, 0, 1)
+offset_top = -31.505611
+offset_right = 17.001907
+offset_bottom = 36.035343
+texture = ExtResource("3_x848m")
+
+[node name="right" type="PathFollow2D" parent="CanvasLayer/Path2D"]
+position = Vector2(-114, 123)
+rotation = -1.2137831
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Path2D/right"]
+self_modulate = Color(0, 1, 0, 1)
+offset_top = -31.505611
+offset_right = 17.001907
+offset_bottom = 36.035343
+texture = ExtResource("3_x848m")
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("4_qdsxc")]
+offset_left = 443.0
+offset_top = 774.0
+offset_right = 1361.0
+offset_bottom = 857.0
+text = "Use A and D to balance on chair"

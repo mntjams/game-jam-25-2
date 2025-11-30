@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://evbakb8g615y"]
+[gd_scene load_steps=3 format=3 uid="uid://evbakb8g615y"]
 
 [ext_resource type="Script" uid="uid://bu72pm531wiiw" path="res://scripts/quicktime_event_minigame.gd" id="1_e8an3"]
+[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="2_i4n8f"]
 
 [node name="QuicktimeEventMinigame" type="Control"]
 layout_mode = 3
@@ -16,6 +17,9 @@ successes_needed = 2
 
 [node name="LabelControl" type="CanvasLayer" parent="."]
 
+[node name="TutorialLabel" parent="LabelControl" instance=ExtResource("2_i4n8f")]
+text = "Press correct key"
+
 [node name="Label" type="Label" parent="LabelControl"]
 visible = false
 anchors_preset = 7
@@ -30,23 +34,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 128
 text = "X"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="TutorialLabel" type="Label" parent="LabelControl"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -900.0
-offset_top = -407.0
-offset_right = 900.0
-offset_bottom = -207.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 64
-text = "Hit the correct key in time!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
