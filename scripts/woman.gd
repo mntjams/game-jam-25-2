@@ -106,7 +106,7 @@ func animate_progress_bar(interest_gained : float):
 	elif interest_gained < 0:
 		fill.bg_color = Color.DARK_RED
 	progress_bar.add_theme_stylebox_override("fill", fill)
-	tween.tween_property(progress_bar, "value", interest, 0.5)
+	tween.tween_property(progress_bar, "value", interest, 2)
 	await tween.finished
 	fill.bg_color = Color("#60b200b0")
 	progress_bar.add_theme_stylebox_override("fill", fill)
