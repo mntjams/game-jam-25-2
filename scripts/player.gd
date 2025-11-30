@@ -16,16 +16,12 @@ var is_interacting = false
 # --- Woman interaction ---
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not is_interacting: # "interact" bound to E
-		if women_in_sight.size() == 0:
-			#print(self,"no women here")
-			pass
-		elif women_in_sight.size() == 1:	
-			if women_in_sight[0].is_working():
-				emit_signal("no_woman_in_sight")
-				start_interaction()
-		elif women_in_sight.size() > 1:
-			#print(self,"whooops")
-			pass
+		if women_in_sight.size() > 0:	
+			for w in women_in_sight:
+				if w.is_working():
+					emit_signal("no_woman_in_sight")
+					start_interaction(w)
+					break
 
 func finish_interaction():
 	is_interacting = false
@@ -33,8 +29,7 @@ func finish_interaction():
 func do_particles():
 	$CPUParticles2D.emitting = true
 
-func start_interaction():
-		var woman : InteractableWoman = women_in_sight[0]
+func start_interaction(woman : InteractableWoman):
 		emit_signal("started_interacting_with",woman)
 		woman.start_interaction(self)
 		is_interacting = true
