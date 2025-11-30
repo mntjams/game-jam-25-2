@@ -40,6 +40,7 @@ func _on_player_started_interacting(woman : InteractableWoman):
 
 func handle_spotted_event():
 	# TODO: handle spotted event
+	$Sprite2D/CPUParticles2D2.emitting = true
 	print("what are you doing with this girl")
 	pass
 
@@ -106,6 +107,7 @@ func gain_interest(interest_gained : float):
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
 	if interest >= INTEREST_LIMIT:
+		$Sprite2D/CPUParticles2D.emitting = true
 		fall_in_love()
 	update_spotting_area_visibility()
 
@@ -124,6 +126,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 # --- BEHAVIOR LOGIC ---
 func _ready() -> void:
 	super._ready()
+	$Sprite2D/CPUParticles2D.emitting = false
 	men_costume_textures = _load_costumes(MEN_COSTUMES_DIR)
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
 	_subscribe_to_player_interaction_signal()

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqvyca6wo77l" path="res://scenes/player.tscn" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
-[ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://djw1g57ulhikm" path="res://scripts/slot.gd" id="7_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/ambiences/crowd-chatter.mp3" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/ambiences/city-ambience.mp3" id="8_vtaks"]
