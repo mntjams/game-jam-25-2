@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qoe1t1c24c7u"]
+[gd_scene load_steps=6 format=3 uid="uid://qoe1t1c24c7u"]
 
 [ext_resource type="Script" uid="uid://caxcmxtqm03ho" path="res://scripts/woman.gd" id="1_lbwyf"]
 [ext_resource type="Texture2D" uid="uid://w4w6bpl26l4a" path="res://assets/img/npc/woman/woman_blonde_blue.png" id="2_lbwyf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbwyf"]
+bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbwyf"]
 radius = 54.0
@@ -14,6 +17,14 @@ script = ExtResource("1_lbwyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lbwyf")
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
+offset_left = -60.0
+offset_top = -80.0
+offset_right = 60.0
+offset_bottom = -50.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
+value = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)

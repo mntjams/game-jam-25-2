@@ -14,6 +14,7 @@ signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
 @onready var interest_bar: Label = $InterestBar
+@onready var progress : ProgressBar = $Sprite2D/ProgressBar
 
 const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
@@ -63,6 +64,8 @@ func gain_interest(interest_gained : float):
 	var gained := interest_gained
 	#print(self," You cool dude, I am really interested")
 	interest = clamp(interest + gained, 0.0, 100.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(progress, "value", interest, 0.5)
 	if interest >= INTEREST_LIMIT:
 		print("I am going to final room now")
 		in_love = true
