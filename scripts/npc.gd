@@ -51,6 +51,10 @@ func _navigate_to(destination: Vector2) -> void:
 	navigation_agent_2d.target_position = destination
 	# print("setting target position to ", destination)
 
+func end_game():
+	# TODO: implement
+	print("end the fucking game")
+
 func _physics_process(_delta: float) -> void:
 	
 	if working: # anti vibration
@@ -58,6 +62,9 @@ func _physics_process(_delta: float) -> void:
 		return
 	if navigation_agent_2d.is_navigation_finished() and angry:
 		#print("got to end")
+		GM.bitches_left -= 1
+		if GM.bitches_left == 0:
+			end_game()
 		queue_free()
 	
 	# If path is finished, we are at (or very near) the slot
