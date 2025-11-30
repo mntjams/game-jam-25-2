@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj5xdhggwrgbl"]
+[gd_scene load_steps=5 format=3 uid="uid://dj5xdhggwrgbl"]
 
 [ext_resource type="Script" uid="uid://otawrrblv1ll" path="res://scripts/cigar_minigame.gd" id="1_ktb7u"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="1_tbj3s"]
+[ext_resource type="Texture2D" uid="uid://klaq0h7hn8da" path="res://assets/img/cigp_filtr.png" id="3_bp4hw"]
+[ext_resource type="Texture2D" uid="uid://cq4h8713by6b6" path="res://assets/img/cigp_bila_cast.png" id="4_u77tf"]
 
 [node name="Cigar" type="Node2D"]
 script = ExtResource("1_ktb7u")
@@ -40,34 +42,34 @@ texture = ExtResource("1_tbj3s")
 
 [node name="filter" type="TextureRect" parent="CanvasLayer/full"]
 self_modulate = Color(0.98039216, 0.45882353, 0.19215687, 1)
+z_index = 1
 layout_mode = 0
 offset_top = 7.5
 offset_right = 100.0
 offset_bottom = 32.5
-texture = ExtResource("1_tbj3s")
+texture = ExtResource("3_bp4hw")
 
 [node name="not_filter" type="TextureRect" parent="CanvasLayer/full/filter"]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 50.0
+offset_left = 30.0
 offset_top = -12.5
-offset_right = 350.0
+offset_right = 330.0
 offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tbj3s")
+texture = ExtResource("4_u77tf")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/full/filter/not_filter"]
 position = Vector2(300, 5)
 amount = 10
 texture = ExtResource("1_tbj3s")
 lifetime = 2.0
-emission_shape = 1
-emission_sphere_radius = 20.0
 spread = 110.0
 gravity = Vector2(0, -200)
 initial_velocity_max = 2.3
