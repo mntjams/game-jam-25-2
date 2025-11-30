@@ -4,6 +4,8 @@
 
 IMPORTANT:
 
+- bar výhra zvuk a dance výhra zvuk
+
 - nejde interact, když dvě ženy naráz
 
 - načapávání
