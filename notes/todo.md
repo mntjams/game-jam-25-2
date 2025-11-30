@@ -5,17 +5,17 @@
 IMPORTANT:
 
 - načapávání
-  - efekty při načapání
   - progress bar shake či podobné
 
 - game finish
-  - nějaký fade out na konec
+  - po fade outu nějaké vyhodnocení toho, jak si hráč vedl
 
 - popis, co se má dělat u miniher ! 
 - upravit vizuál u miniher
 
 - zvuk při success (kromě pártiklů)
-- srdíčka particles when interest 100
+
+- dokončit vizuál mapy
 
 ## Janek
 - game finish
@@ -34,6 +34,7 @@ BONUS:
 - světla
 - animovaná dance podlaha
 - nebalitelní kompars
+- ztrácení interestu overtime
 
 ## Draw
 - srdíčka
