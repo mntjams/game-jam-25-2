@@ -4,6 +4,7 @@ extends Control
 @onready var time_to_hit_event: Timer = $TimeToHitEvent
 @onready var time_between_events: Timer = $TimeBetweenEvents
 @onready var label: Label = $LabelControl/Label
+@onready var tween = get_tree().create_tween()
 
 var sound_effects: Array[AudioStreamMP3]
 var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
@@ -54,7 +55,11 @@ func start_event() -> void:
 	current_key = key_and_char[0]
 	current_letter = key_and_char[1]
 	label.text = current_letter
-	label.visible = true
+	#label.visible = true
+	tween.tween_property(label, "self_modulate", Color(255,255,255,255),1)
+	tween.tween_property(label, "scale", Vector2(3,3),4)
+	
+	
 
 	
 	time_to_hit_event.start()
@@ -105,7 +110,14 @@ func play_random_sound() -> void:
 	
 func _on_time_to_hit_event_timeout() -> void:
 	#print("Time to hit event timeout!")
-	label.visible = false
+	#label.visible = false
+	#var tween = get_tree().create_tween()
+	tween.stop()
+	label.self_modulate = Color(255,255,255,0)
+	label.scale = Vector2(1,1)
+	
+	#tween.tween_property(label, "self_modulate", Color(255,255,255,0),0.2)
+	#tween.tween_property(label, "scale", Vector2(1,1),0.5)
 	time_between_events.start()
 
 func _on_time_between_events_timeout() -> void:
