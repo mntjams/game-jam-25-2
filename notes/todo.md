@@ -4,36 +4,29 @@
 
 IMPORTANT:
 
-- bar výhra zvuk a dance výhra zvuk
-
-- fix čerevný oucapek u slot machine při výhře
+- dance výhra zvuk
 
 - game finish
   - po fade outu nějaké vyhodnocení toho, jak si hráč vedl
 
-- upravit vizuál u miniher
-
-- dokončit vizuál mapy
-
-## Playtest shit
-
 - when leaving with girl interact button still visible
 
-- více času než přijede taxi
 - možná text, ať zkusíme zbalit více ženských?
 
 - zvuk kroků
+
+- postavička na bar
 
 ## Janek
 - game finish
   - nějaký fade out na konec
 
 ## Vláďa
-- srdíčka particles a efekty
+- end screen
 
 ## Matouš
-- popis, co se má dělat u miniher ! 
-- sfx na sloty
+- 
+
 
 BONUS:
 - hlavni postava výběr

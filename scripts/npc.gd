@@ -22,6 +22,8 @@ signal started_working(woman : Npc)
 var final_room : Room = null
 var in_love : bool = false
 
+var angry : bool = false
+
 # setting the interacting flag
 func set_interacting(val : bool) -> void:
 	interacting = val
@@ -54,7 +56,10 @@ func _physics_process(_delta: float) -> void:
 	if working: # anti vibration
 		velocity = Vector2.ZERO
 		return
-
+	if navigation_agent_2d.is_navigation_finished() and angry:
+		#print("got to end")
+		queue_free()
+	
 	# If path is finished, we are at (or very near) the slot
 	if navigation_agent_2d.is_navigation_finished() and not working:
 		# print("navigation finished")
@@ -168,6 +173,7 @@ func emit_fallen_in_love():
 
 func go_to_final_room():
 	_set_going_to_finish(true)
+	$InteractArea/CollisionShape2D.disabled = true
 	current_room = final_room
 	current_slot = final_room.get_first_free_slot()
 	#print("--- NPC:",self,"---")

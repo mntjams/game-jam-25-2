@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6b3abjcaapeb"]
+
+[ext_resource type="Texture2D" uid="uid://mxnsmd4u73ak" path="res://assets/img/gameover_scene_2andmore_bitches.png" id="1_shvxc"]
+
+[node name="Multi" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_shvxc")

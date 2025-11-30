@@ -27,6 +27,8 @@ var interest : float = 0
 
 var debug_spotting = false
 
+var angry_spot = Vector2(3362.785,-61.396)
+
 # --- Player spotting logic
 
 func is_player_visible() -> bool:
@@ -50,7 +52,7 @@ func handle_spotted_event():
 	$Sprite2D/SpottedParticles.emitting = true
 	play_audio(GASP_SOUND_PATH)
 	gain_interest(lose_on_spotted_interest)
-	print("what are you doing with this girl")
+	#print("what are you doing with this girl")
 	pass
 
 func _subscribe_to_player_interaction_signal() -> void:
@@ -111,8 +113,18 @@ func animate_progress_bar(interest_gained : float):
 	fill.bg_color = Color("#60b200b0")
 	progress_bar.add_theme_stylebox_override("fill", fill)
 
+func get_angry():
+	angry = true
+	$Sprite2D/SpottedParticles.one_shot = false
+	$Sprite2D/SpottedParticles.emitting = true
+	print("I got angry")
+	
+	_navigate_to(angry_spot)
+
 func gain_interest(interest_gained : float):
 	#print(self," You cool dude, I am really interested")
+	if interest + interest_gained < 0:
+		get_angry()
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
 	if interest >= INTEREST_LIMIT:
