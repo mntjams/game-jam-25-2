@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcg75o4frx58c"]
+[gd_scene load_steps=6 format=3 uid="uid://ddsx2d2tqkv1g"]
 
 [ext_resource type="Script" uid="uid://dvym4ff1xdcul" path="res://scripts/bar_minigame.gd" id="1_5dekh"]
 [ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="2_bwlfd"]
@@ -55,3 +55,8 @@ offset_top = 774.0
 offset_right = 1361.0
 offset_bottom = 857.0
 text = "Use A and D to balance on chair"
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

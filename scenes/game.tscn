@@ -13,10 +13,10 @@
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://b3axaexelc7hr" path="res://assets/sounds/sfx/ambiences/city-ambience.mp3" id="8_vtaks"]
 [ext_resource type="AudioStream" uid="uid://t0b8thykshgd" path="res://assets/sounds/music/music2.mp3" id="9_0tnpc"]
+[ext_resource type="PackedScene" path="res://scenes/bar.tscn" id="9_5newe"]
 [ext_resource type="PackedScene" uid="uid://evbakb8g615y" path="res://scenes/quicktime_event_minigame.tscn" id="9_ir15t"]
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/ambiences/slots.mp3" id="11_trtic"]
-[ext_resource type="PackedScene" uid="uid://cieuiwomnb3x8" path="res://scenes/test_minigame.tscn" id="12_trtic"]
 [ext_resource type="PackedScene" uid="uid://dj5xdhggwrgbl" path="res://scenes/cigar.tscn" id="13_ca42v"]
 [ext_resource type="PackedScene" uid="uid://mh6y622rj5a2" path="res://scenes/slotting.tscn" id="15_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://byvhqna41uhww" path="res://scenes/piss.tscn" id="17_264po"]
@@ -230,7 +230,7 @@ script = ExtResource("5_0tnpc")
 [node name="Bar" type="Node2D" parent="RoomManager" groups=["Rooms"]]
 position = Vector2(1918.0532, -218.6897)
 script = ExtResource("6_gee14")
-minigame_scene = ExtResource("12_trtic")
+minigame_scene = ExtResource("9_5newe")
 
 [node name="Slot1" type="Node2D" parent="RoomManager/Bar"]
 position = Vector2(-332.05127, 299.31384)
