@@ -8,7 +8,7 @@ const WOMEN_COSTUMES_DIR := "res://assets/img/npc/woman"
 const GASP_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-gasps.mp3"
 const IN_LOVE_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-laugh.mp3"
 
-const lose_on_spotted_interest : float = -10
+const lose_on_spotted_interest : float = -50
 
 var men_costume_textures: Array[Texture2D] = []
 var women_costume_textures: Array[Texture2D] = []
@@ -18,7 +18,7 @@ var women_costume_textures: Array[Texture2D] = []
 signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
-@onready var progress_bar : ProgressBar = $Sprite2D/ProgressBar
+@onready var progress_bar : ProgressBar = $ProgressBar
 @onready var spotting_area : Area2D = $SpottingArea
 
 const INTEREST_LIMIT : float = 100.0
@@ -106,7 +106,7 @@ func animate_progress_bar(interest_gained : float):
 	elif interest_gained < 0:
 		fill.bg_color = Color.DARK_RED
 	progress_bar.add_theme_stylebox_override("fill", fill)
-	tween.tween_property(progress_bar, "value", interest, 0.5)
+	tween.tween_property(progress_bar, "value", interest, 2)
 	await tween.finished
 	fill.bg_color = Color("#60b200b0")
 	progress_bar.add_theme_stylebox_override("fill", fill)

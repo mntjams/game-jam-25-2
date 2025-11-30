@@ -4,6 +4,9 @@ extends Node2D
 @onready var right = $CanvasLayer/Path2D/right
 @onready var tween = get_tree().create_tween()
 
+const WIN_SOUND : String = "res://assets/sounds/sfx/bar/crowd-cheer.mp3"
+const LOSE_SOUND : String = "res://assets/sounds/sfx/bar/scream.mp3"
+
 var vel = 0.002
 var press_vel = vel*30
 var sweet_spot = 0
@@ -13,8 +16,8 @@ var won = false
 signal finished(success: bool, interest_gained : float)
 
 @onready var win_timer = $WinTimer
-var lost_reward = -10
-var win_reward = 10
+var lost_reward = -15
+var win_reward = 30
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,18 +55,36 @@ func _physics_process(_delta: float) -> void:
 		
 
 func losing():
+	play_audio(LOSE_SOUND)
 	tween.stop()
 	tween = get_tree().create_tween()
 	if pathf.progress_ratio < left.progress_ratio:
 		tween.tween_property(pathf, "progress_ratio", 0,1)
 	else: tween.tween_property(pathf, "progress_ratio", 1,1)
 	await tween.finished
+	
 	emit_signal("finished",false,lost_reward)
 	queue_free()
 
 
 func _on_win_timer_timeout():
+	play_audio(WIN_SOUND).finished.connect(func():
+		emit_signal("finished",true,win_reward)
+		queue_free()
+	)
 	# TODO: win sound effect
 	won = true
-	emit_signal("finished",true,win_reward)
-	queue_free()
+
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	print("playing sound",path_to_stream)
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player

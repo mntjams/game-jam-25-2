@@ -19,7 +19,7 @@ var burning_sfx_player: AudioStreamPlayer
 
 signal finished(success: bool, interest_gained : float)
 
-var interest_gained : float = 10.0
+var interest_gained : float = 30
 
 func start():
 	pass

@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://w4w6bpl26l4a" path="res://assets/img/npc/woman/woman_blonde_blue.png" id="2_lbwyf"]
 [ext_resource type="Texture2D" uid="uid://dbekb4ijq5qy4" path="res://assets/img/heart2.png" id="3_kset0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbwyf"]
-bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
-
 [sub_resource type="Gradient" id="Gradient_311h6"]
 offsets = PackedFloat32Array(0, 0.29891303, 0.9945652)
 colors = PackedColorArray(0.78039217, 0.15294118, 0.49803922, 1, 0.78039217, 0.15294118, 0.49803922, 1, 0.78039217, 0.15686275, 0.49803922, 0)
@@ -31,18 +28,14 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kset0"]
 radius = 130.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbwyf"]
+bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
+
 [node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
 script = ExtResource("1_lbwyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lbwyf")
-
-[node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
-offset_left = -60.0
-offset_top = -80.0
-offset_right = 60.0
-offset_bottom = -50.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
 
 [node name="SpottedParticles" type="CPUParticles2D" parent="Sprite2D"]
 position = Vector2(-3, -28)
@@ -84,8 +77,6 @@ shape = SubResource("CircleShape2D_lbwyf")
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_point_size = 14.6
 debug_path_custom_line_width = 17.3
@@ -107,6 +98,15 @@ texture = SubResource("GradientTexture2D_kset0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 visible = false
 shape = SubResource("CircleShape2D_kset0")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -87.0
+offset_top = -105.00001
+offset_right = 33.0
+offset_bottom = -75.00001
+scale = Vector2(1.46, 1.46)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
 
 [connection signal="body_entered" from="SpottingArea" to="." method="_on_spotting_area_body_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_area_2d_body_entered"]

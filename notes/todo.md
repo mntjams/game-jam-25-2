@@ -15,6 +15,15 @@ IMPORTANT:
 
 - dokončit vizuál mapy
 
+## Playtest shit
+
+- when leaving with girl interact button still visible
+
+- více času než přijede taxi
+- možná text, ať zkusíme zbalit více ženských?
+
+- zvuk kroků
+
 ## Janek
 - game finish
   - nějaký fade out na konec
@@ -27,6 +36,7 @@ IMPORTANT:
 - sfx na sloty
 
 BONUS:
+- hlavni postava výběr
 - rizz bar
 - particles when dancing
 - animated dj

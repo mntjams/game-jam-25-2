@@ -3,7 +3,7 @@ extends Node2D
 @onready var slider = $CanvasLayer/slider
 
 var dir = 1
-var interest_gained : float = 10
+var interest_gained : float = 30
 var finished_mini : bool = false
 var sweet_spot = 0
 

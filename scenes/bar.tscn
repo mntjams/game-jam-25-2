@@ -20,23 +20,24 @@ script = ExtResource("1_5dekh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 637.0
-offset_top = 734.0
-offset_right = 1147.0
-offset_bottom = 1244.0
-texture = ExtResource("2_efgdo")
-
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 252.0
-offset_top = 936.0
-offset_right = 553.0
-offset_bottom = 1013.0
+offset_left = 746.0
+offset_top = 979.0
+offset_right = 1047.0
+offset_bottom = 1056.0
+scale = Vector2(1, 0.77)
 theme_override_colors/font_color = Color(0.009604614, 0.009604636, 0.00960468, 1)
 theme_override_styles/fill = SubResource("StyleBoxFlat_qdsxc")
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 639.0
+offset_top = 650.0
+offset_right = 1149.0
+offset_bottom = 1160.0
+texture = ExtResource("2_efgdo")
+
 [node name="Path2D" type="Path2D" parent="CanvasLayer"]
-position = Vector2(812, 911)
+position = Vector2(814, 827)
 curve = SubResource("Curve2D_5dekh")
 
 [node name="left" type="PathFollow2D" parent="CanvasLayer/Path2D"]
@@ -69,11 +70,14 @@ rotation = -1.1562994
 texture = ExtResource("2_qdsxc")
 
 [node name="Label" parent="CanvasLayer" instance=ExtResource("4_qdsxc")]
-offset_left = 443.0
-offset_top = 774.0
-offset_right = 1361.0
-offset_bottom = 857.0
-text = "Use A and D to balance on chair"
+offset_left = 444.0
+offset_top = 556.0
+offset_right = 1362.0
+offset_bottom = 725.0
+text = "Use A and D to balance on chair.
+Don't fall of!"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WinTimer" type="Timer" parent="."]
 wait_time = 5.0
