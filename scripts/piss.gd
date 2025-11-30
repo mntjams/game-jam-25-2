@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var slider = $CanvasLayer/slider
-@onready var text_rect = $CanvasLayer/slider/swee_spot
 
 var dir = 1
 var interest_gained : float = 10
@@ -18,16 +17,15 @@ func start():
 func _ready() -> void:
 	sweet_spot = randf_range(0.2, 0.5)
 	var margin = (1-sweet_spot) * slider.size.x
-	text_rect.size.x -= margin
-	text_rect.position.x += margin/2
+	var style = slider.get_theme_stylebox("slider")
+	style.grow_begin = -margin/2
+	style.grow_end = -margin/2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("slots"):
-		var margin = ((1-sweet_spot)/2)*100
-		print(slider.value)
-		print(margin)
-		if slider.value >= margin and slider.value <= 100-margin:
+		var offset = ((1-sweet_spot)/2)*100
+		if slider.value >= offset and slider.value <= 100-offset:
 			won()
 		else: lost()
 			

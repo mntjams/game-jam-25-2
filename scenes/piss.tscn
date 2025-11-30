@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="2_3jfbr"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3jfbr"]
-color = Color(0.922789, 3.2488256e-06, 1.732707e-06, 1)
+color = Color(0, 1, 0, 1)
 thickness = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8csm"]
@@ -17,6 +17,14 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("1_u8csm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="swee_spot" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 855.0
+offset_top = 427.5
+offset_right = 1155.0
+offset_bottom = 462.5
+texture = ExtResource("2_3jfbr")
 
 [node name="slider" type="HSlider" parent="CanvasLayer"]
 anchors_preset = 8
@@ -33,10 +41,3 @@ grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_3jfbr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u8csm")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
-
-[node name="swee_spot" type="TextureRect" parent="CanvasLayer/slider"]
-self_modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 35.0
-texture = ExtResource("2_3jfbr")

@@ -31,6 +31,5 @@ theme_override_icons/grabber_disabled = ExtResource("1_gt2fk")
 theme_override_styles/slider = SubResource("StyleBoxLine_nltpj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nltpj")
 step = 0.1
-value = 80.0
 editable = false
 scrollable = false

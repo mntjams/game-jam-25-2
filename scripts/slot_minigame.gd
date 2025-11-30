@@ -3,13 +3,13 @@ extends Node2D
 signal finished(success: bool, interest_gained : float)
 
 var interest_gained : float = 10
-var shift : float = 10
-var down_speed : float = 1
+var shift : float = 6
+var down_speed : float = 0.2
 @onready var slider = $CanvasLayer/slot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	slider.value = randf_range(0.1, 0.4)*100
 
 func start():
 	pass
