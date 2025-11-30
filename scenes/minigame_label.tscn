@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dhlsllavhatch"]
+[gd_scene load_steps=0 format=3 uid="uid://dhlsllavhatch"]
 
 [node name="Label" type="Label"]
 offset_left = 446.0
