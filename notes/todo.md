@@ -25,17 +25,14 @@ IMPORTANT:
 - srdíčka particles when interest 100
 
 ## Janek
-- game finish
-  - timer, že typka už je ready to go
-  - zobrazí se label, že typka jde na taxi (případně, kolik typek už čeká)
-  - když timer doběhne, pojede auto a postupně nabere typky (může i spočítat, kolik jich tam stojí)
+- načapávání
 
 ## Vláďa
 - bar minigame
 - timeouty u her
 
 ## Matouš
-- sfx na piss a sloty
+- sfx na sloty
 
 BONUS:
 - rizz bar
@@ -46,5 +43,5 @@ BONUS:
 - nebalitelní kompars
 
 ## Draw
-- zdi
 - srdíčka
+- gamba machine zepředu

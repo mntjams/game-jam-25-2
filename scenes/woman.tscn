@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qoe1t1c24c7u"]
+[gd_scene load_steps=9 format=3 uid="uid://qoe1t1c24c7u"]
 
 [ext_resource type="Script" uid="uid://caxcmxtqm03ho" path="res://scripts/woman.gd" id="1_lbwyf"]
 [ext_resource type="Texture2D" uid="uid://w4w6bpl26l4a" path="res://assets/img/npc/woman/woman_blonde_blue.png" id="2_lbwyf"]
@@ -10,7 +10,17 @@ bg_color = Color(0.3764706, 0.69803923, 0, 0.6901961)
 radius = 54.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_311h6"]
-radius = 382.0013
+radius = 200.0
+
+[sub_resource type="Gradient" id="Gradient_lbwyf"]
+offsets = PackedFloat32Array(0.31012657, 0.44462025)
+colors = PackedColorArray(1, 0, 0, 0.37254903, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kset0"]
+gradient = SubResource("Gradient_lbwyf")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kset0"]
 radius = 130.0
@@ -49,10 +59,15 @@ debug_path_custom_line_width = 17.3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpottingArea"]
 shape = SubResource("CircleShape2D_311h6")
 
+[node name="Sprite2D" type="Sprite2D" parent="SpottingArea"]
+scale = Vector2(12.59, 12.59)
+texture = SubResource("GradientTexture2D_kset0")
+
 [node name="InteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("CircleShape2D_kset0")
 
+[connection signal="body_entered" from="SpottingArea" to="." method="_on_spotting_area_body_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_area_2d_body_exited"]

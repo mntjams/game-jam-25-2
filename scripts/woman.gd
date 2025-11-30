@@ -19,6 +19,32 @@ const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
 var interest : float = 0
 
+# --- Player spotting logic
+
+func is_player_visible() -> bool:
+	for b in $SpottingArea.get_overlapping_bodies():
+		if b is Player:
+			return true
+	return false
+
+func _on_spotting_area_body_entered(body):
+	if body is Player:
+		if body.is_interacting:
+			# TODO: spotted when girl entered
+			print("What are you doing with this woman!")
+
+# check if started 
+func _on_player_started_interacting(woman : InteractableWoman):
+	if woman != self and is_player_visible():
+		# TODO: player started interacting with other woman
+		print("You started interacting with this girl when I am here!")
+
+func _subscribe_to_player_interaction_signal() -> void:
+	var player := get_tree().get_first_node_in_group("Player")
+	
+	if not player.started_interacting_with.is_connected(_on_player_started_interacting):
+		player.started_interacting_with.connect(_on_player_started_interacting)
+
 # --- Interest bar logic
 
 func _init_interest_bar() -> void:
@@ -89,6 +115,7 @@ func _ready() -> void:
 	super._ready()
 	men_costume_textures = _load_costumes(MEN_COSTUMES_DIR)
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
+	_subscribe_to_player_interaction_signal()
 	_apply_random_costume()
 	_init_interest_bar()
 
