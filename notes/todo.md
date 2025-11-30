@@ -5,18 +5,11 @@
 IMPORTANT:
 
 - načapávání
-  - načapávací area
-    - když hráče uvidí osoba A během interakce s osobou B
-    - nasere se -> vyšle signál, že spatřila hráče
-      - otestuje, zda je player interacting (může rovnou zavolat nějakou funkci )
-      - když je hráč interacting a osoba A má nenulový interest, tak jí klesne
+  - efekty při načapání
+  - progress bar shake či podobné
 
 - game finish
   - nějaký fade out na konec
-
-- bar location
-  - tiles
-  - minigame logic
 
 - popis, co se má dělat u miniher ! 
 - upravit vizuál u miniher
@@ -25,11 +18,10 @@ IMPORTANT:
 - srdíčka particles when interest 100
 
 ## Janek
-- načapávání
+- bar minigame integrate
 
 ## Vláďa
-- bar minigame
-- timeouty u her
+- srdíčka particles a efekty
 
 ## Matouš
 - sfx na sloty
