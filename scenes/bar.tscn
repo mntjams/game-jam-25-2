@@ -16,7 +16,7 @@ script = ExtResource("1_5dekh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Path2D" type="Path2D" parent="CanvasLayer"]
-position = Vector2(115, 93)
+position = Vector2(812, 954)
 curve = SubResource("Curve2D_5dekh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D"]
