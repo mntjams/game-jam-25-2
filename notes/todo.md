@@ -4,13 +4,10 @@
 
 IMPORTANT:
 
-- game finish
-  - když nějaké borce stoupne interest až na 100, tak půjde k finish pointu
-  - přidat lokaci finish point
-    - drží si sloty, borky tam chodí po řadě do fronty
-  - po vypršení timeoutu odjede taxi i s borkou a nastane konec hry
-
 - načapávání
+
+- game finish
+  - nějaký fade out na konec
 
 - bar location
   - tiles
