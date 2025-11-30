@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://mh6y622rj5a2"]
+[gd_scene load_steps=7 format=3 uid="uid://mh6y622rj5a2"]
 
 [ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="1_gt2fk"]
 [ext_resource type="Script" uid="uid://bng54ob57qa52" path="res://scripts/slot_minigame.gd" id="1_nltpj"]
+[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="2_87e06"]
 [ext_resource type="Texture2D" uid="uid://0qvl6msnevku" path="res://assets/img/text_rext_small.png" id="3_gt2fk"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_nltpj"]
@@ -18,6 +19,9 @@ script = ExtResource("1_nltpj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Label" parent="CanvasLayer" instance=ExtResource("2_87e06")]
+text = "Use SPACE to spin slot machine"
+
 [node name="slot" type="HSlider" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -25,8 +29,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -142.0
-offset_top = -16.0
+offset_top = -105.0
 offset_right = 142.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_icons/grabber_disabled = ExtResource("1_gt2fk")

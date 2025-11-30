@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcg75o4frx58c"]
+[gd_scene load_steps=6 format=3 uid="uid://dcg75o4frx58c"]
 
 [ext_resource type="Script" uid="uid://dvym4ff1xdcul" path="res://scripts/bar_minigame.gd" id="1_5dekh"]
 [ext_resource type="Texture2D" uid="uid://jhl61vbnmv02" path="res://assets/img/icon.svg" id="2_bwlfd"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="3_x848m"]
+[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="4_qdsxc"]
 
 [sub_resource type="Curve2D" id="Curve2D_5dekh"]
 _data = {
@@ -16,7 +17,7 @@ script = ExtResource("1_5dekh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Path2D" type="Path2D" parent="CanvasLayer"]
-position = Vector2(812, 954)
+position = Vector2(812, 911)
 curve = SubResource("Curve2D_5dekh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D"]
@@ -47,3 +48,10 @@ offset_top = -31.505611
 offset_right = 17.001907
 offset_bottom = 36.035343
 texture = ExtResource("3_x848m")
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("4_qdsxc")]
+offset_left = 443.0
+offset_top = 774.0
+offset_right = 1361.0
+offset_bottom = 857.0
+text = "Use A and D to balance on chair"

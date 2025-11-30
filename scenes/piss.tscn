@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://byvhqna41uhww"]
+[gd_scene load_steps=7 format=3 uid="uid://byvhqna41uhww"]
 
 [ext_resource type="Script" uid="uid://c1d0gmpbb78he" path="res://scripts/piss.gd" id="1_u8csm"]
 [ext_resource type="Texture2D" uid="uid://b2q146hutsua7" path="res://assets/img/text_rect_small.png" id="2_3jfbr"]
+[ext_resource type="PackedScene" uid="uid://dhlsllavhatch" path="res://scenes/minigame_label.tscn" id="3_a2rcf"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3jfbr"]
 color = Color(0, 1, 0, 1)
@@ -26,8 +27,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -150.0
-offset_top = -35.0
+offset_top = -105.0
 offset_right = 150.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_3jfbr")
@@ -39,10 +41,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -150.0
-offset_top = -35.0
+offset_top = -105.0
 offset_right = 150.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/slider = SubResource("StyleBoxLine_3jfbr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u8csm")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("3_a2rcf")]
+offset_left = 502.0
+offset_top = 825.0
+offset_right = 1521.0
+offset_bottom = 908.0
+text = "Press SPACE when you are on toilet"
