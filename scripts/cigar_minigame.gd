@@ -5,7 +5,7 @@ extends Node2D
 @onready var not_filter = $CanvasLayer/full/filter/not_filter
 @onready var particles = $CanvasLayer/full/filter/not_filter/CPUParticles2D
 var finished_game = false
-var vel = 6
+var vel = 30
 var tween = null
 var origin_pos = 0
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +31,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	print(not_filter.size.x)
 	var left_part = filter.position.x
 	var right_part = left_part+filter.size.x
 	if left_part < good.position.x:
@@ -46,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	var vec = filter.position
 	if Input.is_action_just_pressed("slots"): vec.x-=vel
 	else:
-		vec.x+=vel/2.0
+		vec.x+=vel/15.0
 		if right_part >= full.size.x:
 				return
 	var move_tween = get_tree().create_tween()

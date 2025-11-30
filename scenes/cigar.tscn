@@ -72,6 +72,13 @@ texture = ExtResource("1_tbj3s")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/full/filter/not_filter"]
 position = Vector2(300, 5)
+amount = 10
 texture = ExtResource("1_tbj3s")
-gravity = Vector2(0, -400)
-color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 110.0
+gravity = Vector2(0, -200)
+initial_velocity_max = 2.3
+angle_max = 180.0
+color = Color(0.73300546, 0.7330054, 0.7330054, 1)
