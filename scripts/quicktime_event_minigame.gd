@@ -16,6 +16,7 @@ const SFX_FILES := [
 	"res://assets/sounds/sfx/quicktime-event-minigame/whoo.mp3"
 ]
 var sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/"
+const win_sound_path: String = "res://assets/sounds/sfx/quicktime-event-minigame/dance-success.mp3"
 
 var current_key: Key
 var current_letter: String = 'x'
@@ -49,6 +50,7 @@ func _process(_delta: float) -> void:
 			emit_signal("finished", true, interest_gained)
 			#print("quicktime event finished")
 			play_random_sound(true)
+			play_audio(win_sound_path)
 			return
 		else:
 			play_random_sound(false)
@@ -120,3 +122,16 @@ func _on_time_to_hit_event_timeout() -> void:
 
 func _on_time_between_events_timeout() -> void:
 	start_event()
+	
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player

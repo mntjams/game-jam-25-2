@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_e8an3")
-successes_needed = 2
+successes_needed = 5
 
 [node name="LabelControl" type="CanvasLayer" parent="."]
 

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dj3d00f3pw5e8" path="res://scripts/room_manager.gd" id="5_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://2j8ycxlaqaci" path="res://assets/img/tiles/tileset5.png" id="5_bt5mj"]
 [ext_resource type="Script" uid="uid://wlsyrkid1xtg" path="res://scripts/room.gd" id="6_gee14"]
-[ext_resource type="Script" uid="uid://djw1g57ulhikm" path="res://scripts/slot.gd" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://ccjf5kr435dt3" path="res://scripts/slot.gd" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bp12pkyargj6h" path="res://assets/img/tiles/tileset6.png" id="7_e1j6l"]
 [ext_resource type="AudioStream" uid="uid://brrewjiyrn2vo" path="res://assets/sounds/sfx/ambiences/crowd-chatter.mp3" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://du6iq2jvrrtdk" path="res://scripts/interact_label.gd" id="8_gee14"]
