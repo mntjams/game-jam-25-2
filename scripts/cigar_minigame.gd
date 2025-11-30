@@ -4,6 +4,7 @@ extends Node2D
 @onready var filter = $CanvasLayer/full/filter
 @onready var not_filter = $CanvasLayer/full/filter/not_filter
 @onready var particles = $CanvasLayer/full/filter/not_filter/CPUParticles2D
+@onready var label = $CanvasLayer/LabelLabel
 var finished_game = false
 var vel = 30
 var tween = null
@@ -13,7 +14,7 @@ var origin_pos = 0
 const lighter_sfx_path: String = "res://assets/sounds/sfx/smoking/lighter.mp3"
 const burning_sfx_path: String = "res://assets/sounds/sfx/smoking/burning-cig.mp3"
 const exhale_sfx_path: String = "res://assets/sounds/sfx/smoking/smoke-exhale.mp3"
-
+const cough_sfx_path: String = "res://assets/sounds/sfx/smoking/cough.mp3"
 var burning_sfx_player: AudioStreamPlayer
 
 signal finished(success: bool, interest_gained : float)
@@ -41,7 +42,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var left_part = filter.position.x
 	var right_part = left_part+filter.size.x
-	if left_part < good.position.x:
+	if left_part < good.position.x and not finished_game:
 		# print("Die")
 		_lost()
 	elif right_part > good.position.x+good.size.x:
@@ -74,10 +75,14 @@ func _won():
 	)
 	
 func _lost():
+	full.visible = false
+	label.visible = false
 	finished_game = true
+	play_audio(cough_sfx_path).finished.connect(func():
+		emit_signal("finished", false, interest_gained)
+		queue_free()
+	)
 	# print("Lost")
-	emit_signal("finished", false, interest_gained)
-	queue_free()
 
 func play_audio(path_to_stream: String) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()

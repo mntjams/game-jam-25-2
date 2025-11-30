@@ -82,3 +82,16 @@ initial_velocity_max = 2.3
 angle_max = 180.0
 scale_amount_max = 2.0
 color = Color(0.73300546, 0.7330054, 0.7330054, 1)
+
+[node name="LabelLabel" type="Label" parent="CanvasLayer"]
+offset_left = 119.0
+offset_top = 664.0
+offset_right = 1809.0
+offset_bottom = 1025.0
+theme_override_font_sizes/font_size = 48
+text = "Press 'SPACE' to bring the cig closer.
+Don't get it too close.
+Keep it in the zone.
+Smoke it you addict! ;)"
+horizontal_alignment = 1
+vertical_alignment = 2

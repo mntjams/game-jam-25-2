@@ -8,8 +8,13 @@ var down_speed : float = 0.2
 @onready var slider = $CanvasLayer/slot
 var ended = false
 
+const spin_sfx_path: String = "res://assets/sounds/sfx/slots/slot-machine-spin.mp3"
+const slot_win_sfx_path: String = "res://assets/sounds/sfx/slots/slot-machine-win.mp3"
+var spin_sfx_player: AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spin_sfx_player = play_audio(spin_sfx_path)
 	slider.value = randf_range(0.1, 0.4)*100
 
 func start():
@@ -29,9 +34,23 @@ func _physics_process(delta: float) -> void:
 
 func won():
 	# print("won")
+	spin_sfx_player.stop()
+	play_audio(slot_win_sfx_path).finished.connect(func():
+		emit_signal("finished", true, interest_gained)
+		queue_free()
+	)
 	$CanvasLayer/slot/CPUParticles2D.emitting = true
-	await get_tree().create_timer(1).timeout
-	emit_signal("finished", true, interest_gained)
-	queue_free()
+	#await get_tree().create_timer(1).timeout
 	
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
 	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player
