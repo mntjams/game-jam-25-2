@@ -14,6 +14,7 @@ signal approached_by_player(woman : InteractableWoman, is_working : bool)
 signal player_left(woman : InteractableWoman)
 
 @onready var progress_bar : ProgressBar = $Sprite2D/ProgressBar
+@onready var spotting_area : Area2D = $SpottingArea
 
 const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
@@ -28,22 +29,31 @@ func is_player_visible() -> bool:
 	return false
 
 func _on_spotting_area_body_entered(body):
-	if body is Player:
+	if interest > 0 and body is Player:
 		if body.is_interacting:
-			# TODO: spotted when girl entered
-			print("What are you doing with this woman!")
+			handle_spotted_event()
 
 # check if started 
 func _on_player_started_interacting(woman : InteractableWoman):
-	if woman != self and is_player_visible():
-		# TODO: player started interacting with other woman
-		print("You started interacting with this girl when I am here!")
+	if woman != self and is_player_visible() and interest > 0:
+		handle_spotted_event()
+
+func handle_spotted_event():
+	# TODO: handle spotted event
+	print("what are you doing with this girl")
+	pass
 
 func _subscribe_to_player_interaction_signal() -> void:
 	var player := get_tree().get_first_node_in_group("Player")
 	
 	if not player.started_interacting_with.is_connected(_on_player_started_interacting):
 		player.started_interacting_with.connect(_on_player_started_interacting)
+
+func update_spotting_area_visibility():
+	if interest > 0:
+		spotting_area.visible = true
+	else:
+		spotting_area.visible = false
 
 # --- Interest bar logic
 
@@ -95,6 +105,7 @@ func gain_interest(interest_gained : float):
 	#print(self," You cool dude, I am really interested")
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
+	update_spotting_area_visibility()
 	if interest >= INTEREST_LIMIT:
 		fall_in_love()
 
@@ -117,6 +128,7 @@ func _ready() -> void:
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
 	_subscribe_to_player_interaction_signal()
 	_apply_random_costume()
+	update_spotting_area_visibility()
 	_init_interest_bar()
 
 func on_done_in_room() -> void:

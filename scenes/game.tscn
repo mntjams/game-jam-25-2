@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://qoe1t1c24c7u" path="res://scenes/woman.tscn" id="9_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c1up1ft22051j" path="res://assets/sounds/sfx/ambiences/slots.mp3" id="11_trtic"]
 [ext_resource type="PackedScene" uid="uid://cieuiwomnb3x8" path="res://scenes/test_minigame.tscn" id="12_trtic"]
-[ext_resource type="PackedScene" uid="uid://ci2k0o8x3p4nq" path="res://scenes/cigar.tscn" id="13_ca42v"]
+[ext_resource type="PackedScene" uid="uid://dj5xdhggwrgbl" path="res://scenes/cigar.tscn" id="13_ca42v"]
 [ext_resource type="PackedScene" uid="uid://mh6y622rj5a2" path="res://scenes/slotting.tscn" id="15_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://byvhqna41uhww" path="res://scenes/piss.tscn" id="17_264po"]
 [ext_resource type="Texture2D" uid="uid://bue1twkpf3wpc" path="res://assets/img/taxi.png" id="21_5newe"]
