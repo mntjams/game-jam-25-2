@@ -5,6 +5,11 @@ class_name InteractableWoman
 const MEN_COSTUMES_DIR := "res://assets/img/npc/man"
 const WOMEN_COSTUMES_DIR := "res://assets/img/npc/woman"
 
+const GASP_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-gasps.mp3"
+const IN_LOVE_SOUND_PATH := "res://assets/sounds/sfx/woman/woman-laugh.mp3"
+
+const lose_on_spotted_interest : float = -10
+
 var men_costume_textures: Array[Texture2D] = []
 var women_costume_textures: Array[Texture2D] = []
 
@@ -19,6 +24,8 @@ signal player_left(woman : InteractableWoman)
 const INTEREST_LIMIT : float = 100.0
 var player_in_range: bool = false
 var interest : float = 0
+
+var debug_spotting = false
 
 # --- Player spotting logic
 
@@ -40,7 +47,9 @@ func _on_player_started_interacting(woman : InteractableWoman):
 
 func handle_spotted_event():
 	# TODO: handle spotted event
-	$Sprite2D/CPUParticles2D2.emitting = true
+	$Sprite2D/SpottedParticles.emitting = true
+	play_audio(GASP_SOUND_PATH)
+	gain_interest(lose_on_spotted_interest)
 	print("what are you doing with this girl")
 	pass
 
@@ -107,7 +116,8 @@ func gain_interest(interest_gained : float):
 	interest = clamp(interest + interest_gained, 0.0, 100.0)
 	animate_progress_bar(interest_gained)
 	if interest >= INTEREST_LIMIT:
-		$Sprite2D/CPUParticles2D.emitting = true
+		$Sprite2D/LoveParticles.emitting = true
+		play_audio(IN_LOVE_SOUND_PATH)
 		fall_in_love()
 	update_spotting_area_visibility()
 
@@ -126,7 +136,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 # --- BEHAVIOR LOGIC ---
 func _ready() -> void:
 	super._ready()
-	$Sprite2D/CPUParticles2D.emitting = false
+	if debug_spotting:
+		interest = 10
+	$Sprite2D/LoveParticles.emitting = false
 	men_costume_textures = _load_costumes(MEN_COSTUMES_DIR)
 	women_costume_textures = _load_costumes(WOMEN_COSTUMES_DIR)
 	_subscribe_to_player_interaction_signal()
@@ -178,3 +190,16 @@ func _apply_random_costume() -> void:
 
 	var idx := randi() % costume_textures.size()
 	sprite.texture = costume_textures[idx]
+
+func play_audio(path_to_stream: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	add_child(player)
+	
+	player.stream = load(path_to_stream)
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
+	player.play()
+	
+	return player

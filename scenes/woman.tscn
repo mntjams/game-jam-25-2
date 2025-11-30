@@ -34,7 +34,17 @@ radius = 130.0
 [node name="Woman" type="CharacterBody2D" groups=["NPCs"]]
 script = ExtResource("1_lbwyf")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lbwyf")
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
+offset_left = -60.0
+offset_top = -80.0
+offset_right = 60.0
+offset_bottom = -50.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
+
+[node name="SpottedParticles" type="CPUParticles2D" parent="Sprite2D"]
 position = Vector2(-3, -28)
 emitting = false
 amount = 3
@@ -51,17 +61,7 @@ damping_max = 100.0
 angle_min = -45.0
 angle_max = 45.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lbwyf")
-
-[node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
-offset_left = -60.0
-offset_top = -80.0
-offset_right = 60.0
-offset_bottom = -50.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_lbwyf")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+[node name="LoveParticles" type="CPUParticles2D" parent="Sprite2D"]
 position = Vector2(0, 17)
 amount = 3
 texture = ExtResource("3_kset0")
