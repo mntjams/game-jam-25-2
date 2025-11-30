@@ -93,7 +93,13 @@ func progress_taxi():
 	fade_out()
 	riding_player.stop()
 	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://scenes/zero.tscn")
+	if num_in_love == 0:
+		get_tree().change_scene_to_file("res://scenes/zero.tscn")
+	elif num_in_love == 1:
+		get_tree().change_scene_to_file("res://scenes/zero.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/zero.tscn")
+		
 	
 	
 func play_audio(path_to_stream: String) -> AudioStreamPlayer:
