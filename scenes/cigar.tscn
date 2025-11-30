@@ -10,17 +10,16 @@ script = ExtResource("1_ktb7u")
 
 [node name="full" type="TextureRect" parent="CanvasLayer"]
 self_modulate = Color(0.9372549, 0, 0, 1)
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 580.0
-offset_bottom = 20.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -40.0
+offset_right = 300.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture = ExtResource("1_tbj3s")
 
 [node name="good" type="TextureRect" parent="CanvasLayer/full"]

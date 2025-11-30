@@ -16,17 +16,16 @@ script = ExtResource("1_nltpj")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="slot" type="HSlider" parent="CanvasLayer"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 280.0
-offset_bottom = 8.0
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -16.0
+offset_right = 142.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_icons/grabber_disabled = ExtResource("1_gt2fk")
 theme_override_styles/slider = SubResource("StyleBoxLine_nltpj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nltpj")

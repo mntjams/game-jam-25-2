@@ -20,24 +20,29 @@ script = ExtResource("1_u8csm")
 
 [node name="swee_spot" type="TextureRect" parent="CanvasLayer"]
 self_modulate = Color(1, 0, 0, 1)
-offset_left = 855.0
-offset_top = 427.5
-offset_right = 1155.0
-offset_bottom = 462.5
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -35.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("2_3jfbr")
 
 [node name="slider" type="HSlider" parent="CanvasLayer"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -110.0
-offset_right = 195.0
-offset_bottom = -80.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -35.0
+offset_right = 150.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_styles/slider = SubResource("StyleBoxLine_3jfbr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u8csm")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8csm")
