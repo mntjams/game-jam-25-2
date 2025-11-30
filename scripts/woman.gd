@@ -48,6 +48,11 @@ func start_interaction(player : Player) -> void:
 	super.set_interacting(true)
 	current_room.start_minigame_for(self, player)
 
+func fall_in_love():
+	print("I am going to final room now")
+	in_love = true
+	super.go_to_final_room()
+	super.emit_fallen_in_love()
 
 # finish interacting with player and leave
 func finish_interaction(success : bool, interest_gained : float) -> void:
@@ -67,9 +72,7 @@ func gain_interest(interest_gained : float):
 	var tween = get_tree().create_tween()
 	tween.tween_property(progress, "value", interest, 0.5)
 	if interest >= INTEREST_LIMIT:
-		print("I am going to final room now")
-		in_love = true
-		super.go_to_final_room()
+		fall_in_love()
 	_update_interest_bar_value()	
 
 # --- Player tracking logic ---

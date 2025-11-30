@@ -1,5 +1,6 @@
-[gd_scene load_steps=41 format=4 uid="uid://cdtnc2ucqxpfl"]
+[gd_scene load_steps=42 format=4 uid="uid://cdtnc2ucqxpfl"]
 
+[ext_resource type="Script" uid="uid://bisddq7kjbmly" path="res://scenes/game.gd" id="1_1kice"]
 [ext_resource type="Texture2D" uid="uid://ci80yuy4650eo" path="res://assets/img/tiles/tileset4.png" id="1_ca42v"]
 [ext_resource type="Texture2D" uid="uid://h4evjbxm6uvl" path="res://assets/img/tiles/tileset2.png" id="1_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dvoeqqmnfxh6r" path="res://assets/img/tiles/tileset3.png" id="2_kvuet"]
@@ -198,6 +199,7 @@ sources/1 = SubResource("TileSetAtlasSource_ir15t")
 sources/2 = SubResource("TileSetAtlasSource_pl11u")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_1kice")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 position = Vector2(6, 3)
@@ -418,6 +420,19 @@ offset_bottom = 1027.0
 theme_override_font_sizes/font_size = 64
 text = "Pres 'E' to interact"
 script = ExtResource("8_gee14")
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -279.0
+offset_right = 279.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+
+[node name="TaxiTimer" type="Timer" parent="."]
+wait_time = 30.0
 
 [connection signal="no_woman_in_sight" from="Player" to="CanvasLayer/InteractLabel" method="_on_player_no_woman_in_sight"]
 [connection signal="woman_entered_sight" from="Player" to="CanvasLayer/InteractLabel" method="_on_player_woman_entered_sight"]

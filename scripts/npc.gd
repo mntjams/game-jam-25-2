@@ -4,6 +4,7 @@ class_name Npc
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 signal ready_for_room(npc: Npc, from_room: Room) # signal the room manager to give us a room
+signal fallen_in_love
 
 var current_room: Room = null
 var current_slot: Slot = null
@@ -158,7 +159,13 @@ func set_my_final_room(room : Room) -> void:
 	#print(self, "my final room is ", room)
 
 
-	
+func start_taxi_arrival_timer():
+	pass
+	#TODO: finish
+
+func emit_fallen_in_love():
+	emit_signal("fallen_in_love")
+
 func go_to_final_room():
 	_set_going_to_finish(true)
 	current_room = final_room
